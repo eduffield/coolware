@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Report Info
+{% endblock %}
+
+{% block content %}
+
+    {% if data.severity == 1 %}
+        <div class="alert alert-info ">
+            <p><strong>Severity {{ data.severity }}:</strong> {{ data.issue }}</p>
+        </div>
+    {% elif data.severity == 2 %}
+        <div class="alert alert-warning">
+            <p><strong>Severity {{ data.severity }}:</strong> {{ data.issue }}</p>
+        </div>
+    {% elif data.severity == 3 %}
+        <div class="alert alert-danger">
+            <p><strong>Severity {{ data.severity }}:</strong> {{ data.issue }}</p>
+        </div>
+    {% else %}
+        <div class="alert alert-secondary">
+            <p><strong>Severity {{ data.severity }}:</strong> {{ data.issue }}</p>
+        </div>
+    {% endif %}
+
+    <div class="container bg-light pt-2 pb-5 border border-dark">
+        <p><strong>Remediation: </strong>{{ data.remediation }}</p>
+    </div>
+
+    <p>Back to <a href="/report">Report</a></p>
+{% endblock %}

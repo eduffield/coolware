@@ -1,0 +1,100 @@
+<head>
+  <style>
+    body {font-family: Arial;}
+    
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+      /*background-color: inherit;*/
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      border-radius: 0;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+</head>
+
+{% extends "master.html" %}
+
+{% block title %}
+  Full Report
+{% endblock %}
+
+{% block content %}
+  <h1>Report</h1>
+    
+  <ul>
+    {% for x in full_report %}
+      <li><a href="report_data/{{ x.id }}">{{ x.severity }} {{ x.issue }} {{ x.remediation }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <div class="tab">
+    {% for x in full_report %}
+      {% if x.severity == 1 %}
+        <button class="tablinks btn btn-info" onclick="openTab(event, '{{ x.id }}')">#{{ x.id }}</button>
+      {% elif x.severity == 2 %}
+        <button class="tablinks btn btn-warning" onclick="openTab(event, '{{ x.id }}')">#{{ x.id }}</button>
+      {% elif x.severity == 3 %}
+        <button class="tablinks btn btn-danger" onclick="openTab(event, '{{ x.id }}')">#{{ x.id }}</button>
+      {% else %}
+        <button class="tablinks btn btn-secondary" onclick="openTab(event, '{{ x.id }}')">#{{ x.id }}</button>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% for x in full_report %}
+    <div id='{{ x.id }}' class="tabcontent">
+      <h4><strong>Severity {{ x.severity }}:</strong> {{ x.issue }}</h4>
+      <p>{{ x.remediation }}</p>
+      <a href="report_data/{{ x.id }}" class="btn btn-secondary">More detail</a>
+    </div>
+  {% endfor %}
+  
+  <script>
+  function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
+{% endblock %}
