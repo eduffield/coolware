@@ -24,7 +24,7 @@ class Report:
 
 my_report = Report("2024-01-14")
 
-# Add issues to the report
+# Add issues to the report...
 my_report.add_issue(1, "Hello", "Free up space by deleting unnecessary files or moving them to an external drive.")
 my_report.add_issue(2, "Outdated Software", "Update the software to the latest version to patch security vulnerabilities and improve performance.")
 my_report.add_issue(3, "Weak Passwords", "Change passwords to strong and unique combinations to enhance account security.")
