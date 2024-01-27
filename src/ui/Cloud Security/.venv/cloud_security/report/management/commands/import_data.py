@@ -19,7 +19,7 @@ class Command(BaseCommand):
                     report_contents = data.get("Report Contents", [])
 
                     for item in report_contents:
-                        data = ReportData(severity = item["Severity"],issue = item["Issue"],remediation = item["Remediation"])
+                        data = ReportData(severity = item["Severity"], issue = item["Issue"], remediation = item["Remediation"])
                         data.save()
 
         self.stdout.write(self.style.SUCCESS('Data imported successfully'))
