@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Group Viewer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 600px;
+            max-width: 100%;
+            text-align: left;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Security Group Information</h1>
+        <hr>
+        <pre>
+Security Group ID: {{ security_group.group_id }}
+Security Group Name: {{ security_group.group_name }}
+Description: {{ security_group.description }}
+VPC ID: {{ security_group.vpc_id }}
+
+Ingress Rules:
+{% for rule in security_group.ingress_rules %}
+    {% for ip_range in rule.IpRanges %}
+        IpRange: {{ ip_range.CidrIp }}
+    {% endfor %}
+{% endfor %}
+
+Egress Rules:
+{% for rule in security_group.egress_rules %}
+    {% for ip_range in rule.IpRanges %}
+        IpRange: {{ ip_range.CidrIp }}
+    {% endfor %}
+{% endfor %}
+        </pre>
+        <hr>
+        <p>For more information on AWS Security Groups, visit the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html" target="_blank">official documentation</a>.</p>
+    </div>
+</body>
+</html>
