@@ -2,10 +2,6 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import ReportData
 
-#def report(request):
-  #template = loader.get_template('page.html')
-  #return HttpResponse(template.render())
-
 def report(request):
     full_report = ReportData.objects.all().values
     template = loader.get_template('full_report.html')
