@@ -1,8 +1,8 @@
 from flask import Flask, render_template
-from AWS import runreport
+from AWS import run_report
 import json
 
-runreport()
+run_report()
 
 app = Flask(__name__)
 
