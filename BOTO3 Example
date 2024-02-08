@@ -1,0 +1,19 @@
+import boto3
+
+# Create an S3 client using secure credentials (AWS profile, environment variables, or IAM role)
+s3 = boto3.client('s3')
+
+# Example: List all buckets in your AWS account
+response = s3.list_buckets()
+
+# Print the bucket names
+print("List of S3 Buckets:")
+for bucket in response['Buckets']:
+    print(bucket['Name'])
+    
+//Ensure that you have proper AWS credentials configured before running the code. You can configure credentials using one of the following methods:
+
+//AWS CLI: Use aws configure command to set up AWS CLI with your access key and secret key.
+//Environment Variables: Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.
+//IAM Roles: Use IAM roles if running your code on AWS services like EC2, Lambda, or ECS.
+//Always remember to handle your AWS credentials securely and follow AWS security best practices to ensure the security of your applications and data.
