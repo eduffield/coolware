@@ -1,0 +1,15 @@
+{
+  "Report Date": "2024-01-14",
+  "Report Contents": [
+    {
+      "Severity": 2,
+      "Issue": "Open HTTP port",
+      "Remediation": "Make sure your HTTP is routed to HTTPS."
+    },
+    {
+      "Severity": 3,
+      "Issue": "Open SSH port",
+      "Remediation": "Modify your CIDR block to only accept IPs you trust."
+    }
+  ]
+}

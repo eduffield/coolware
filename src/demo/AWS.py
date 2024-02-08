@@ -116,7 +116,7 @@ def get_ec2_instances_by_security_group(security_group_id):
         print(f"Error: {e}")
         return None
 
-if __name__ == '__main__':
+def runreport():
 
     my_report = Report("2024-01-14")
 
