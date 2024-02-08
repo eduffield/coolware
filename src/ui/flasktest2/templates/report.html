@@ -60,14 +60,17 @@
     </style>
 </head>
 <body>
-    <h1>List of Reports</h1>
-    <ul>
-        {% for filename in json_files %}
-            <li><a href="/report/{{ filename }}">{{ filename }}</a></li>
-            <form action="/delete_report/{{ filename }}" method="post" style="display:inline;">
-                <button type="submit">Delete</button>
-            </form>
+    <div class="container">
+        <h1>Security Report - {{ report_data["Report Date"] }}</h1>
+        <hr>
+        {% for item in report_data["Report Contents"] %}
+            <div class="severity-divider severity-{{ item.Severity }}"></div>
+            <pre>
+Issue: {{ item.Issue }}
+Severity: {{ item.Severity }}
+Remediation: {{ item.Remediation }}
+            </pre>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>

@@ -1,0 +1,30 @@
+{
+  "Report Date": "2024-02-08",
+  "Report Contents": [
+    {
+      "Severity": 2,
+      "Issue": "Low Disk Space",
+      "Remediation": "Free up space by deleting unnecessary files or moving them to an external drive."
+    },
+    {
+      "Severity": 2,
+      "Issue": "Outdated Software",
+      "Remediation": "Update the software to the latest version to patch security vulnerabilities and improve performance."
+    },
+    {
+      "Severity": 3,
+      "Issue": "Weak Passwords",
+      "Remediation": "Change passwords to strong and unique combinations to enhance account security."
+    },
+    {
+      "Severity": 3,
+      "Issue": "Weak Passwords",
+      "Remediation": "Change passwords to strong and unique combinations to enhance account security."
+    },
+    {
+      "Severity": 3,
+      "Issue": "Weak Passwords",
+      "Remediation": "Change passwords to strong and unique combinations to enhance account security."
+    }
+  ]
+}
