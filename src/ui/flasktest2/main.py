@@ -3,6 +3,7 @@ import os
 import json
 
 app = Flask(__name__)
+app.secret_key = "secret key wowee"
 
 @app.route('/')
 def index():
@@ -34,7 +35,7 @@ def report(filename):
 def delete_report(filename):
     try:
         os.remove(os.path.join('Reports', filename))
-        flash('Report deleted successfully!', 'success')
+        #flash('Report deleted successfully!', 'success')
     except Exception as e:
         flash(f'Failed to delete report: {e}', 'error')
     return redirect(url_for('index'))
