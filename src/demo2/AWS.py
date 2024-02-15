@@ -105,6 +105,41 @@ def get_ec2_instances_by_security_group(security_group_id):
     except Exception as e:
         print(f"Error: {e}")
         return None
+    
+def evaluate_route_tables(report_to_modify):
+    ec2_client = boto3.client('ec2')
+
+    vpcs = ec2_client.describe_vpcs()['Vpcs']
+
+    for vpc in vpcs:
+        vpc_id = vpc['VpcId']
+        print(f"Route Tables for VPC: {vpc_id}")
+
+        route_tables = ec2_client.describe_route_tables(Filters=[{'Name': 'vpc-id', 'Values': [vpc_id]}])['RouteTables']
+
+        for route_table in route_tables:
+            route_table_id = route_table['RouteTableId']
+
+            print(f"  Route Table ID: {route_table_id}")
+
+            for route in route_table['Routes']:
+                destination = route.get('DestinationCidrBlock', 'N/A')
+                target = route.get('GatewayId', 'N/A')
+
+                print(f"    Destination: {destination}, Target: {target}")
+
+                if destination == '0.0.0.0/0' and target.startswith('igw-'):
+                    print("      Warning: Default route to 0.0.0.0/0 with Internet Gateway. Check if this is intentional for a public subnet.")
+                    report_to_modify.add_issue(1, "Default route to 0.0.0.0/0 with Internet Gateway.", "Check if this is intentional for a public subnet.")
+                
+                if destination.startswith('10.') or destination.startswith('172.') or destination.startswith('192.'):
+                    print("      Warning: Internal route detected. Ensure this is intended for private communication.")
+                    report_to_modify.add_issue(1, "Internal route detected.", "Ensure this is intended for private communication.")
+                
+                if destination == '0.0.0.0/0' and not target.startswith('igw-'):
+                    print("      Warning: Default route to 0.0.0.0/0 without an Internet Gateway (unused destination). Consider the security implications.")
+                    report_to_modify.add_issue(2, "Default route to 0.0.0.0/0 without an Internet Gateway (unused destination).", "Consider the security implications.")
+            print()
 
 def run_report():
 
@@ -114,9 +149,12 @@ def run_report():
 
     my_report = Report(dtstring)
 
+    evaluate_route_tables(my_report)
+
     security_group_id_to_query = 'sg-03e413d5e389d7a1c'
 
     security_groups_list = get_security_groups()
+
     if security_groups_list:
 
         invalid_sgs = []
