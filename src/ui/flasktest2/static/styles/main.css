@@ -50,3 +50,7 @@ pre {
     line-height: 1.6;
     color: #333;
 }
+
+.dark-mode {
+    background-color: #242424;
+}
