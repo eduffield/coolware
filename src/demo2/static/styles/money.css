@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #c5e8c3;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,7 +10,7 @@ body {
 }
 
 .container, .list-group, .list-group-item {
-    background-color: #fff;
+    background-color: #e2f0e1;
 }
 
 .container {
@@ -23,8 +23,8 @@ body {
     margin-top: 50px;
 }
 
-h1 {
-    color: #333;
+h1, p {
+    color: #3b5939;
 }
 
 .severity-divider {

@@ -1,0 +1,25 @@
+{
+  "Report Date": "2024-02-29_15-55-08",
+  "Report Contents": [
+    {
+      "Severity": 1,
+      "Issue": "Internal route detected.",
+      "Remediation": "Ensure this is intended for private communication."
+    },
+    {
+      "Severity": 1,
+      "Issue": "Default route to 0.0.0.0/0 with Internet Gateway.",
+      "Remediation": "Check if this is intentional for a public subnet."
+    },
+    {
+      "Severity": 2,
+      "Issue": "Open HTTP port",
+      "Remediation": "Make sure your HTTP is routed to HTTPS."
+    },
+    {
+      "Severity": 3,
+      "Issue": "Open SSH port",
+      "Remediation": "Modify your CIDR block to only accept IPs you trust."
+    }
+  ]
+}
