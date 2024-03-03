@@ -64,7 +64,7 @@ if __name__ == "__main__":
     my_report = Report("2024-01-14")
 
     resource1 = Resource(name="disk212122", region="us-east-1")
-    resource2 = Resource(name="drive33", region="us-east-2")
+    resource2 = Resource(name="drive33", region="us-east-2", provider="aws")
     resource3 = Resource(name="db9", region="us-west-2")
 
 

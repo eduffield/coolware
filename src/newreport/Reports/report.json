@@ -12,7 +12,8 @@
         },
         {
           "name": "drive33",
-          "region": "us-east-2"
+          "region": "us-east-2",
+          "provider": "aws"
         }
       ]
     },
@@ -44,7 +45,8 @@
         },
         {
           "name": "drive33",
-          "region": "us-east-2"
+          "region": "us-east-2",
+          "provider": "aws"
         },
         {
           "name": "db9",
