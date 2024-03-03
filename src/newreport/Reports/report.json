@@ -1,0 +1,56 @@
+{
+  "Report Date": "2024-01-14",
+  "Report Contents": [
+    {
+      "Severity": 1,
+      "Issue": "Low Disk Space",
+      "Remediation": "Free up space by deleting unnecessary files or moving them to an external drive.",
+      "Affected Resources": [
+        {
+          "name": "disk212122",
+          "region": "us-east-1"
+        },
+        {
+          "name": "drive33",
+          "region": "us-east-2"
+        }
+      ]
+    },
+    {
+      "Severity": 2,
+      "Issue": "Outdated Software",
+      "Remediation": "Update the software to the latest version to patch security vulnerabilities and improve performance.",
+      "Affected Resources": []
+    },
+    {
+      "Severity": 3,
+      "Issue": "Weak Passwords",
+      "Remediation": "Change passwords to strong and unique combinations to enhance account security.",
+      "Affected Resources": [
+        {
+          "name": "disk212122",
+          "region": "us-east-1"
+        }
+      ]
+    },
+    {
+      "Severity": 2,
+      "Issue": "Outdated Software",
+      "Remediation": "Update the software to the latest version to patch security vulnerabilities and improve performance.",
+      "Affected Resources": [
+        {
+          "name": "disk212122",
+          "region": "us-east-1"
+        },
+        {
+          "name": "drive33",
+          "region": "us-east-2"
+        },
+        {
+          "name": "db9",
+          "region": "us-west-2"
+        }
+      ]
+    }
+  ]
+}
