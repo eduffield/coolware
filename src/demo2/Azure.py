@@ -14,7 +14,6 @@ def read_subscription_id_from_azure_profile():
     try:
         with open(azure_profile_path, 'r') as file:
             profile = json.load(file)
-            # Assuming the default subscription is to be used
             subscription_id = profile['subscriptions'][0]['id']
             return subscription_id
     except FileNotFoundError:
@@ -26,7 +25,6 @@ def read_subscription_id_from_azure_profile():
 
 def get_azure_credentials():
     try:
-        # Authenticate using default credentials
         credentials = DefaultAzureCredential()
         return credentials
     except AzureError as e:
@@ -52,7 +50,6 @@ def evaluate_nsgs(nsgs, report_to_modify):
             direction = security_rule.direction
             access = security_rule.access
 
-            # Azure uses '*' to denote all ports, split port ranges to cover all RED_ALERT_PORTS
             ports = port_range.split("-")
             ports = range(int(ports[0]), int(ports[-1]) + 1) if len(ports) > 1 else [int(ports[0])]
 
