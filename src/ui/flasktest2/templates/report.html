@@ -10,7 +10,10 @@
 <body>
     <div class="container">
         <h1>Security Report - {{ report_data["Report Date"] }}</h1>
-        <button onclick="toggleTheme()">Toggle theme</button>
+        <button class="btn btn-outline-dark buttonTheme" onclick="toggleTheme()">Toggle theme</button>
+        <form action="/" style="display: inline-block;">
+            <button type="submit" class="buttonTheme btn btn-outline-dark">Back</button>
+        </form>
         <hr>
         {% for item in report_data["Report Contents"] %}
             <div class="severity-divider severity-{{ item.Severity }}"></div>
@@ -22,23 +25,45 @@ Remediation: {{ item.Remediation }}
         {% endfor %}
     </div>
 
-<script>
-    function toggleTheme() { 
-        var link = document.getElementById("theme");
-
-        if (event.shiftKey){
-            link.setAttribute("href", "{{ url_for('static',filename='styles/money.css') }}")
-        }else if (event.ctrlKey){
-            link.setAttribute("href", "{{ url_for('static',filename='styles/color.css') }}")
-        }else{
-            if (link.getAttribute("href") == "{{ url_for('static',filename='styles/main.css') }}") {
+    <script>
+        function toggleTheme() { 
+            var link = document.getElementById("theme");
+            var currentTheme = localStorage.getItem("theme");
+    
+            if (currentTheme === "{{ url_for('static',filename='styles/main.css') }}") {
                 link.setAttribute("href", "{{ url_for('static',filename='styles/dark.css') }}");
+                localStorage.setItem("theme", "{{ url_for('static',filename='styles/dark.css') }}");
+                updateButtonClasses("btn-outline-dark", "btn-outline-light");
             } else {
                 link.setAttribute("href", "{{ url_for('static',filename='styles/main.css') }}");
+                localStorage.setItem("theme", "{{ url_for('static',filename='styles/main.css') }}");
+                updateButtonClasses("btn-outline-light", "btn-outline-dark");
             }
         }
-    }
-</script>
-
+    
+        // Function to update button classes
+        function updateButtonClasses(classToRemove, classToAdd) {
+            var buttons = document.getElementsByClassName("buttonTheme");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove(classToRemove);
+                buttons[i].classList.add(classToAdd);
+            }
+        }
+    
+        // On page load, set the theme based on the stored value
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var link = document.getElementById("theme");
+            var currentTheme = localStorage.getItem("theme");
+    
+            if (currentTheme) {
+                link.setAttribute("href", currentTheme);
+                if (currentTheme === "{{ url_for('static',filename='styles/dark.css') }}") {
+                    updateButtonClasses("btn-outline-dark", "btn-outline-light");
+                } else {
+                    updateButtonClasses("btn-outline-light", "btn-outline-dark");
+                }
+            }
+        });
+    </script>
 </body>
 </html>

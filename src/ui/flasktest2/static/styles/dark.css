@@ -9,7 +9,11 @@ body {
     height: 100vh;
 }
 
-.container, .list-group, .list-group-item {
+.container {
+    background-color: #303030;
+}
+
+.list-group, .list-group-item{
     background-color: #363742;
 }
 
@@ -23,8 +27,12 @@ body {
     margin-top: 50px;
 }
 
-h1, p {
-    color: #e7e7e7;
+h1 {
+    color: #c4abe0;
+}
+
+p {
+    color: #d8cae8;
 }
 
 .severity-divider {
@@ -51,5 +59,5 @@ pre {
     word-wrap: break-word;
     font-size: 14px;
     line-height: 1.6;
-    color: #333;
+    color: #ccc;
 }

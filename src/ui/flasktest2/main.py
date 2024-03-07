@@ -17,7 +17,6 @@ def index():
             data = json.load(json_file)
             all_report_data[file] = data
 
-    #TODO Make the index page look better
     return render_template('index.html', json_files=json_files, all_report_data=all_report_data)
 
 @app.route('/report/<filename>')
