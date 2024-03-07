@@ -5,4 +5,4 @@ Evan Duffield
 Dylan Morris
 Bennett Wiley
 
-Requires AWS CLI to run
+Requires AWS or Azure CLI to run
