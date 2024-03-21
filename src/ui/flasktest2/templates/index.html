@@ -8,42 +8,35 @@
     <link href= "{{ url_for('static',filename='styles/main.css') }}" rel="stylesheet" type="text/css" id="theme">
 </head>
 <body>
-    <br>
-    <br>
-    <h1 style="text-align:center;">Security Reports</h1>
-    <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()">Toggle theme</button>
+    <div>
+        <br>
+        <br>
+        <br>
+        <h1 style="text-align:center;">Security Reports</h1>
+        <br>
 
-    <div class="container mt-3">
-        <ul class="list-group list-group-flush">
-            {% for filename in json_files %}
-                <li class="list-group-item">First item
-                    <form style="float:right; padding-right:10px;" action="/report/{{ filename }}"> <button type="submit" class="btn btn-outline-info">View</button> </form>
-                    <form style="float:right; padding-right:10px;" action="/delete_report/{{ filename }}" method="post" style="display:inline;"> <button type="submit" class="btn btn-outline-danger">Delete</button> </form>
-                </li>
-                
-            {% endfor %}
-        </ul>
-      </div>
+        <div class="container mt-3">
+            <ul class="list-group list-group-flush">
+                {% for filename in json_files %}
+                    <li class="list-group-item">
+                        <p style="float:left; padding-right:7px; padding-top:10px; padding-bottom: 10px;">Report {{ all_report_data[filename]['Report Date'] }}</p>
+                        <p style="float:left; padding-right:8px; padding-top:10px; padding-bottom: 0px; font-size:11px;">9:16 PM</p>
+                        <!--
+                            TODO: Load time from json
+                        -->
+                        <p style="float:left; padding-right:10px; padding-top:10px; padding-bottom: 10px;">Issues: {% if all_report_data[filename]['Report Contents'] %}{{ all_report_data[filename]['Report Contents']|length }}{% else %}0{% endif %}</p>
+                        <form style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/report/{{ filename }}"> <button type="submit" class="btn btn-outline-info">View</button> </form>
+                        <form style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/delete_report/{{ filename }}" method="post" style="display:inline;"> <button type="submit" class="btn btn-outline-danger">Delete</button> </form>
+                    </li>
+                    
+                {% endfor %}
+            </ul>
+        </div>
 
-    <div class="container mt-3">
-        <ul class="list-group">
-            {% for filename in json_files %}
-                <li class="list-group-item">
-                    <form action="/report/{{ filename }}">
-                        <button type="submit" class="btn btn-outline-primary">View Report from {{ all_report_data[filename]['Report Date'] }}</button>
-                    </form>
-                    <!--
-                    <span class="badge bg-primary rounded-pill">Issues: {% if all_report_data[filename]['Report Contents'] %}{{ all_report_data[filename]['Report Contents']|length }}{% else %}0{% endif %}</span>
-                    //-->
-                    <p>Filename: {{ filename }}</p>
-                    <p>Date: {{ all_report_data[filename]['Report Date'] }}</p>
-                    <p>Issues: {% if all_report_data[filename]['Report Contents'] %}{{ all_report_data[filename]['Report Contents']|length }}{% else %}0{% endif %}</p>
-                    <form action="/delete_report/{{ filename }}" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-outline-danger">Delete Report</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
+        <br>
+        <br>
+        <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+
     </div>
 
     <script>
