@@ -8,24 +8,10 @@
     <link href= "{{ url_for('static',filename='styles/main.css') }}" rel="stylesheet" type="text/css" id="theme">
 </head>
 <body>
-    <br>
-    <br>
-    <h1 style="text-align:center;">Security Reports</h1>
-    <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()">Toggle theme</button>
-
-    <div class="container mt-3">
-        <ul class="list-group list-group-flush">
-            {% for filename in json_files %}
-                <li class="list-group-item">First item
-                    <form style="float:right; padding-right:10px;" action="/report/{{ filename }}"> <button type="submit" class="btn btn-outline-info">View</button> </form>
-                    <form style="float:right; padding-right:10px;" action="/delete_report/{{ filename }}" method="post" style="display:inline;"> <button type="submit" class="btn btn-outline-danger">Delete</button> </form>
-                </li>
-                
-            {% endfor %}
-        </ul>
-      </div>
-
-    <div class="container mt-3">
+    <div class="container">
+        <h1>Cloud Security Tool Reports</h1>
+        <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()">Toggle theme</button>
+        <hr>
         <ul class="list-group">
             {% for filename in json_files %}
                 <li class="list-group-item">
