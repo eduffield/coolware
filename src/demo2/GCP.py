@@ -1,9 +1,12 @@
 from google.cloud import compute_v1
+from google.cloud import resource_manager_v3
 from google.auth.exceptions import DefaultCredentialsError
 from datetime import datetime
 from Report import Report
 
 RED_ALERT_PORTS = ['21', '22', '80']
+BROAD_CIDR_BLOCKS = ['0.0.0.0/0']
+OVERLY_PERMISSIVE_ROLES = ['roles/owner', 'roles/editor']
 
 class GCPFirewallRule:
     def __init__(self, id, name, description, direction, priority, target_tags, source_ranges, allowed):
@@ -19,7 +22,7 @@ class GCPFirewallRule:
 def get_firewall_rules():
     try:
         client = compute_v1.FirewallsClient()
-        project = 'your-gcp-project-id'  # Replace with your GCP project ID
+        project = 'your-gcp-project-id'
         firewall_rules = client.list(project=project)
 
         gcp_firewall_rules = []
@@ -50,7 +53,7 @@ def evaluate_firewall_rules(firewall_rules, report_to_modify):
                 if port in RED_ALERT_PORTS and '0.0.0.0/0' in rule.source_ranges:
                     print(f"INVALID RULE: PORT {port} IS OPEN TO 0.0.0.0/0 in rule {rule.name}")
                     report_to_modify.add_issue(2, f"Open port {port}", "Modify your rule to restrict access.")
-                    break  # To avoid duplicate reports for the same rule
+                    break
 
 def run_report_gcp():
     dt = datetime.now()
@@ -63,4 +66,63 @@ def run_report_gcp():
 
     my_report.write_to_json(dtstring + ".json")
 
-run_report_gcp()
+def get_project_id():
+    try:
+        _, project = google.auth.default()
+        if project is None:
+            raise Exception("Default project not set in gcloud SDK")
+        return project
+    except DefaultCredentialsError:
+        print("GCP credentials not available.")
+        return None
+
+def list_vpcs_and_subnets(project_id):
+    try:
+        client = compute_v1.SubnetworksClient()
+        subnets = client.aggregated_list(project=project_id)
+        for _, subnets_scoped_list in subnets:
+            if subnets_scoped_list.subnetworks:
+                for subnet in subnets_scoped_list.subnetworks:
+                    if subnet.ip_cidr_range in BROAD_CIDR_BLOCKS:
+                        print(f"Subnet {subnet.name} in {subnet.region} has a broad CIDR: {subnet.ip_cidr_range}")
+    except Exception as e:
+        print(f"Error listing VPCs and Subnets: {e}")
+
+def list_external_ip_instances(project_id):
+    try:
+        client = compute_v1.InstancesClient()
+        instances = client.aggregated_list(project=project_id)
+        for _, instances_scoped_list in instances:
+            if instances_scoped_list.instances:
+                for instance in instances_scoped_list.instances:
+                    for network_interface in instance.network_interfaces:
+                        for access_config in network_interface.access_configs:
+                            if access_config.type_ == 'ONE_TO_ONE_NAT':
+                                print(f"Instance {instance.name} has an external IP: {access_config.nat_ip}")
+    except Exception as e:
+        print(f"Error listing instances with external IPs: {e}")
+
+def check_overly_permissive_iam_roles(project_id):
+    try:
+        client = resource_manager_v3.ProjectsClient()
+        policy = client.get_iam_policy(resource=project_id)
+        for binding in policy.bindings:
+            if binding.role in OVERLY_PERMISSIVE_ROLES:
+                print(f"Overly permissive role found: {binding.role} with members {binding.members}")
+    except Exception as e:
+        print(f"Error checking IAM roles: {e}")
+
+def run_security_inspection():
+    project_id = get_project_id()
+    if not project_id:
+        return
+    
+    my_report = Report(datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+
+    list_vpcs_and_subnets(project_id)
+    list_external_ip_instances(project_id)
+    check_overly_permissive_iam_roles(project_id)
+
+if __name__ == '__main__':
+    run_security_inspection()
+    run_report_gcp()
