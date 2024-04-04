@@ -19,6 +19,15 @@ class GCPFirewallRule:
         self.source_ranges = source_ranges
         self.allowed = allowed
 
+def check_bucket_permissions(project_id):
+    client = storage.Client(project=project_id)
+    buckets = client.list_buckets()
+    for bucket in buckets:
+        iam_policy = bucket.get_iam_policy()
+        for role, members in iam_policy.items():
+            if 'allUsers' in members or 'allAuthenticatedUsers' in members:
+                print(f"Public access found on bucket {bucket.name}")
+
 def get_firewall_rules():
     try:
         client = compute_v1.FirewallsClient()
