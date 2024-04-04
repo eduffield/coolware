@@ -6,7 +6,7 @@ from AWS import run_report
 run_report()
 
 app = Flask(__name__)
-app.secret_key = "secret key wowee"
+app.secret_key = "c2VjcmV0IGtleSB3b3dlZQ=="
 
 @app.route('/')
 def index():
