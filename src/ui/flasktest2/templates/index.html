@@ -26,7 +26,7 @@
                         -->
                         <p style="float:left; padding-right:10px; padding-top:10px; padding-bottom: 10px;">Issues: {% if all_report_data[filename]['Report Contents'] %}{{ all_report_data[filename]['Report Contents']|length }}{% else %}0{% endif %}</p>
                         <form style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/report/{{ filename }}"> <button type="submit" class="btn btn-outline-info">View</button> </form>
-                        <form style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/delete_report/{{ filename }}" method="post" style="display:inline;"> <button type="submit" class="btn btn-outline-danger">Delete</button> </form>
+                        <form id="deleteForm_{{ filename }}" style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/delete_report/{{ filename }}" method="post" style="display:inline;"> <button type="button" onclick="confirmDelete('{{ filename }}')" class="btn btn-outline-danger">Delete</button> </form>
                     </li>
                 {% endfor %}
             </ul>
@@ -39,6 +39,12 @@
     </div>
 
     <script>
+        function confirmDelete(filename) {
+            if (confirm("Are you sure you want to delete this report?")) {
+                document.getElementById('deleteForm_' + filename).submit();
+            }
+        }
+
         function toggleTheme() { 
             var link = document.getElementById("theme");
             var currentTheme = localStorage.getItem("theme");
