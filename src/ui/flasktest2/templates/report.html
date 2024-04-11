@@ -8,21 +8,52 @@
     <link href= "{{ url_for('static',filename='styles/main.css') }}" rel="stylesheet" type="text/css" id="theme">
 </head>
 <body>
-    <div class="container">
-        <h1>Security Report - {{ report_data["Report Date"] }}</h1>
-        <button class="btn btn-outline-dark buttonTheme" onclick="toggleTheme()">Toggle theme</button>
-        <form action="/" style="display: inline-block;">
-            <button type="submit" class="buttonTheme btn btn-outline-dark">Back</button>
-        </form>
-        <hr>
-        {% for item in report_data["Report Contents"] %}
+    <div>
+        <br>
+        <br>
+        <br>
+        <h1 style="text-align:center;">Security Report</h1>
+        <h2 style="text-align:center;">{{ report_data["Report Date"] }} @ 9:16PM</h2>
+        <!--
+            TODO: Load time from json
+        -->
+        <br>
+
+        <div class="container mt-1">
+            <div class="d-flex justify-content-center">
+                <div class="btn-group w-100" role="group">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-danger" for="btnradio1">Issues</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-success" for="btnradio2">Resolved</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btnradio3">Ignored</label>
+                </div>
+            </div>
+            {% for item in report_data["Report Contents"] %}
             <div class="severity-divider severity-{{ item.Severity }}"></div>
-            <pre>
+            <div class="container my-2">
+                <div class="row">
+                    <div class="col">
+                        <pre>
 Issue: {{ item.Issue }}
 Severity: {{ item.Severity }}
-Remediation: {{ item.Remediation }}
-            </pre>
-        {% endfor %}
+                        </pre>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary">Button 1</button>
+                        <button type="button" class="btn btn-secondary">Button 2</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+
     </div>
 
     <script>

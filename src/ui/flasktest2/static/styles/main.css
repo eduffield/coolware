@@ -17,20 +17,20 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 8px;
-    width: 600px;
+    width: 700px;
     max-width: 100%;
     text-align: left;
     margin-top: 50px;
 }
 
-h1 {
+h1, h2 {
     color: #333;
 }
 
 .severity-divider {
     margin: 20px 0;
     border: 0;
-    height: 1px;
+    height: 3px;
     background-color: #ddd;
 }
 
