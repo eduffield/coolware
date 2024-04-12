@@ -15,6 +15,7 @@ class Report:
 
     def add_issue(self, severity, issue, remediation, affected_resources=None):
         new_issue = {
+            "Status": "Active",
             "Severity": severity,
             "Issue": issue,
             "Remediation": remediation,
