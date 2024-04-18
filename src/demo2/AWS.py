@@ -258,13 +258,13 @@ def mitre_detect_anomalous_behavior():
     except Exception as e:
         print(f"Error detecting anomalous user behavior: {e}")
 
-def run_report():
+def run_report(my_report):
 
-    dt = datetime.now()
+    #dt = datetime.now()
 
-    dtstring = dt.strftime("%Y-%m-%d_%H-%M-%S")
+    #dtstring = dt.strftime("%Y-%m-%d_%H-%M-%S")
 
-    my_report = Report(dtstring)
+    #my_report = Report(dtstring)
 
     evaluate_route_tables(my_report)
 
@@ -327,3 +327,13 @@ def run_report():
 
 
     my_report.write_to_json(dtstring + ".json")
+
+if __name__ == '__main__':
+    dt = datetime.now()
+
+    dtstring = dt.strftime("%Y-%m-%d_%H-%M-%S")
+
+    my_report = Report(dtstring)
+
+
+    run_report(my_report)
