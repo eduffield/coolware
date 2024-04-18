@@ -2,8 +2,15 @@ from flask import Flask, render_template, redirect, url_for, flash
 import os
 import json
 from AWS import run_report
+from datetime import datetime
+from Report import Report
 
-run_report()
+# Build, run report
+#dt = datetime.now()
+#dtstring = dt.strftime("%Y-%m-%d_%H-%M-%S")
+#my_report = Report(dtstring)
+#run_report(my_report)
+#my_report.write_to_json(dtstring + ".json")
 
 app = Flask(__name__)
 app.secret_key = "c2VjcmV0IGtleSB3b3dlZQ=="
@@ -20,7 +27,7 @@ def index():
             data = json.load(json_file)
             all_report_data[file] = data
 
-    #TODO Make the index page look better
+    # TODO Make the index page look better
     return render_template('index.html', json_files=json_files, all_report_data=all_report_data)
 
 @app.route('/report/<filename>')

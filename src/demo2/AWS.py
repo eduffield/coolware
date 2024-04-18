@@ -326,7 +326,7 @@ def run_report(my_report):
                     print("-" * 40)
 
 
-    my_report.write_to_json(dtstring + ".json")
+
 
 if __name__ == '__main__':
     dt = datetime.now()
