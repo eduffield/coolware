@@ -46,7 +46,7 @@ Status: {{ item.Status }}
                         </div>
                         <div class="col-auto">
                             <button type="button" class="btn btn-secondary ignore-btn">Ignore</button>
-                            <button type="button" class="btn btn-success resolve-btn">Resolve</button>
+                            <button type="button" class="btn btn-success resolve-btn" onclick="resolveIssue('{{ filename }}', '{{ index }}')">Resolve</button>
                         </div>
                         <div class="col-auto">
                             <button type="button" class="btn btn-info view-btn">View</button>
@@ -130,6 +130,7 @@ Status: {{ item.Status }}
                 });
             });
         });
+
     </script>
 </body>
 </html>

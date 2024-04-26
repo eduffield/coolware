@@ -22,8 +22,8 @@
         <div class="container mt-1">
             <div class="d-flex justify-content-center">
                 <div class="btn-group w-100" role="group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                    <label class="btn btn-outline-danger" for="btnradio1">Issues</label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="btnradio1">Active</label>
                   
                     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
                     <label class="btn btn-outline-success" for="btnradio2">Resolved</label>
@@ -33,18 +33,24 @@
                 </div>
             </div>
             {% for item in report_data["Report Contents"] %}
-            <div class="severity-divider severity-{{ item.Severity }}"></div>
-            <div class="container my-2">
-                <div class="row">
-                    <div class="col">
-                        <pre>
+            <div class="issue-container" data-status="{{ item.Status }}">
+                <div class="severity-divider severity-{{ item.Severity }}"></div>
+                <div class="container my-2">
+                    <div class="row">
+                        <div class="col">
+                            <pre>
 Issue: {{ item.Issue }}
 Severity: {{ item.Severity }}
-                        </pre>
-                    </div>
-                    <div class="col-auto">
-                        <button type="button" class="btn btn-primary">Button 1</button>
-                        <button type="button" class="btn btn-secondary">Button 2</button>
+Status: {{ item.Status }}
+                            </pre>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-secondary ignore-btn">Ignore</button>
+                            <button type="button" class="btn btn-success resolve-btn">Resolve</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-info view-btn">View</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,6 +100,35 @@ Severity: {{ item.Severity }}
                     updateButtonClasses("btn-outline-light", "btn-outline-dark");
                 }
             }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll('.btn-check');
+            radioButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    let status;
+                    switch (this.getAttribute('id')) {
+                        case 'btnradio1':
+                            status = 'Active';
+                            break;
+                        case 'btnradio2':
+                            status = 'Resolved';
+                            break;
+                        case 'btnradio3':
+                            status = 'Ignored';
+                            break;
+                        default:
+                            status = 'All';
+                    }
+                    const issueContainers = document.querySelectorAll('.issue-container');
+                    issueContainers.forEach(function(container) {
+                        container.style.display = 'none'; // Hide all issue containers initially
+                        if (status === 'All' || container.dataset.status === status) {
+                            container.style.display = 'block'; // Display issues with selected status or all issues
+                        }
+                    });
+                });
+            });
         });
     </script>
 </body>
