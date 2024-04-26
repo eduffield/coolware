@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request
 import os
 import json
 
@@ -38,6 +38,24 @@ def delete_report(filename):
     except Exception as e:
         flash(f'Failed to delete report: {e}', 'error')
     return redirect(url_for('index'))
+
+@app.route('/resolve_report/<filename>', methods=['POST'])
+def resolve_report(filename):
+    try:
+        json_file_path = os.path.join('Reports', filename)
+        index = int(request.json['index'])  # Get the index of the issue from the request
+        with open(json_file_path, 'r+') as file:
+            report_data = json.load(file)
+            # Update the status of the specified issue to "Resolved"
+            report_data['Report Contents'][index]['Status'] = "Resolved"
+            file.seek(0)
+            json.dump(report_data, file, indent=4)
+            file.truncate()
+        flash('Report status updated to Resolved successfully!', 'success')
+    except Exception as e:
+        flash(f'Failed to update report status: {e}', 'error')
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

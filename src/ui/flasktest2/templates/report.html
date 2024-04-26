@@ -46,7 +46,7 @@ Status: {{ item.Status }}
                         </div>
                         <div class="col-auto">
                             <button type="button" class="btn btn-secondary ignore-btn">Ignore</button>
-                            <button type="button" class="btn btn-success resolve-btn" onclick="resolveIssue('{{ filename }}', '{{ index }}')">Resolve</button>
+                            <button type="button" class="btn btn-success resolve-btn" onclick="resolveReport('{{ filename }}', '{{ loop.index0 }}')">Resolve</button>
                         </div>
                         <div class="col-auto">
                             <button type="button" class="btn btn-info view-btn">View</button>
@@ -130,6 +130,31 @@ Status: {{ item.Status }}
                 });
             });
         });
+
+        function resolveReport(filename, index) {
+        // Send a POST request to the Flask server to resolve the report
+        fetch(`/resolve_report/${filename}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the request is successful, reload the page to reflect the changes
+                location.reload();
+            } else {
+                throw new Error('Failed to resolve report');
+            }
+        })
+        .catch(error => {
+            console.error('Error resolving report:', error);
+            // Handle error appropriately (e.g., display a message to the user)
+        });
+    }
 
     </script>
 </body>
