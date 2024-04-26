@@ -56,6 +56,23 @@ def resolve_report(filename):
         flash(f'Failed to update report status: {e}', 'error')
     return redirect(url_for('index'))
 
+@app.route('/ignore_report/<filename>', methods=['POST'])
+def ignore_report(filename):
+    try:
+        json_file_path = os.path.join('Reports', filename)
+        index = int(request.json['index'])  # Get the index of the issue from the request
+        with open(json_file_path, 'r+') as file:
+            report_data = json.load(file)
+            # Update the status of the specified issue to "Ignored"
+            report_data['Report Contents'][index]['Status'] = "Ignored"
+            file.seek(0)
+            json.dump(report_data, file, indent=4)
+            file.truncate()
+        flash('Report status updated to Ignored successfully!', 'success')
+    except Exception as e:
+        flash(f'Failed to update report status: {e}', 'error')
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
