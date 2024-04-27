@@ -49,7 +49,7 @@ Status: {{ item.Status }}
                             <button type="button" class="btn btn-success resolve-btn" onclick="resolveReport('{{ filename }}', '{{ loop.index0 }}')">Resolve</button>
                         </div>
                         <div class="col-auto">
-                            <button type="button" class="btn btn-info view-btn">View</button>
+                            <a href="{{ url_for('issue_details', filename=filename, index=loop.index0) }}" class="btn btn-info">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -59,6 +59,8 @@ Status: {{ item.Status }}
         <br>
         <br>
         <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+        <br>
+        <br>
 
     </div>
 

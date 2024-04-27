@@ -8,59 +8,40 @@
     <link href= "{{ url_for('static',filename='styles/main.css') }}" rel="stylesheet" type="text/css" id="theme">
 </head>
 <body>
-    <div>
-        <br>
-        <br>
-        <br>
-        <h1 style="text-align:center;">Security Report</h1>
-        <h2 style="text-align:center;">{{ report_data["Report Date"] }} @ 9:16PM</h2>
-        <!--
-            TODO: Load time from json
-        -->
-        <br>
+    <br>
+    <br>
+    <br>
+    <h1 style="text-align:center;">Issue Details</h1>
+    <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('report', filename=filename) }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Report</button>
 
-        <div class="container mt-1">
-            <div class="d-flex justify-content-center">
-                <div class="btn-group w-100" role="group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-danger" for="btnradio1">Active</label>
-                  
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-success" for="btnradio2">Resolved</label>
-                  
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btnradio3">Ignored</label>
-                </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ issue_data["Issue"] }}</h3>
             </div>
-            {% for item in report_data["Report Contents"] %}
-            <div class="issue-container" data-status="{{ item.Status }}">
-                <div class="severity-divider severity-{{ item.Severity }}"></div>
-                <div class="container my-2">
-                    <div class="row">
-                        <div class="col">
-                            <pre>
-Issue: {{ item.Issue }}
-Severity: {{ item.Severity }}
-Status: {{ item.Status }}
-                            </pre>
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-secondary ignore-btn">Ignore</button>
-                            <button type="button" class="btn btn-success resolve-btn">Resolve</button>
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-info view-btn">View</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="card-body">
+                <p><strong>Status:</strong> {{ issue_data["Status"] }}</p>
+                <p><strong>Severity:</strong> {{ issue_data["Severity"] }}</p>
+                <p><strong>Remediation:</strong> {{ issue_data["Remediation"] }}</p>
+                <h5>Affected Resources:</h5>
+                <ul class="list-group">
+                    {% for resource in issue_data["Affected Resources"] %}
+                    <li class="list-group-item">
+                        <p><strong>Name:</strong> {{ resource["name"] }}</p>
+                        <p><strong>Region:</strong> {{ resource["region"] }}</p>
+                        <p><strong>Provider:</strong> {{ resource["provider"] }}</p>
+                        <p><strong>Service:</strong> {{ resource["service"] }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
-            {% endfor %}
         </div>
-        <br>
-        <br>
-        <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
-
     </div>
+    <br>
+    <br>
+    <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+    <br>
+    <br>
 
     <script>
         function toggleTheme() { 
@@ -130,6 +111,57 @@ Status: {{ item.Status }}
                 });
             });
         });
+
+    function resolveReport(filename, index) {
+        // Send a POST request to the Flask server to resolve the report
+        fetch(`/resolve_report/${filename}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the request is successful, reload the page to reflect the changes
+                location.reload();
+            } else {
+                throw new Error('Failed to resolve report');
+            }
+        })
+        .catch(error => {
+            console.error('Error resolving report:', error);
+            // Handle error appropriately (e.g., display a message to the user)
+        });
+    }
+
+    function ignoreReport(filename, index) {
+        // Send a POST request to the Flask server to ignore the report
+        fetch(`/ignore_report/${filename}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the request is successful, reload the page to reflect the changes
+                location.reload();
+            } else {
+                throw new Error('Failed to ignore report');
+            }
+        })
+        .catch(error => {
+            console.error('Error ignoring report:', error);
+            // Handle error appropriately (e.g., display a message to the user)
+        });
+    }
+
     </script>
 </body>
 </html>

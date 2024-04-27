@@ -73,6 +73,17 @@ def ignore_report(filename):
         flash(f'Failed to update report status: {e}', 'error')
     return redirect(url_for('index'))
 
+@app.route('/report/<filename>/issue/<int:index>')
+def issue_details(filename, index):
+    json_file_path = os.path.join('Reports', filename)
+    if os.path.isfile(json_file_path):
+        with open(json_file_path) as file:
+            report_data = json.load(file)
+            issue_data = report_data["Report Contents"][index]
+            return render_template('issue.html', filename=filename, issue_data=issue_data)
+    else:
+        return "File not found"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
