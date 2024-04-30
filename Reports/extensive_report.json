@@ -1,525 +1,525 @@
 {
-  "Report Date": "2024-01-14",
-  "Report Contents": [
-    {
-      "Status": "Active",
-      "Severity": 1,
-      "Issue": "High CPU Usage",
-      "Remediation": "Upgrade or optimize the current instances to handle the load better.",
-      "Affected Resources": [
+    "Report Date": "2024-01-14",
+    "Report Contents": [
         {
-          "name": "SQLDatabase01",
-          "region": "us-east-1",
-          "provider": "aws",
-          "service": "RDS"
+            "Status": "Ignored",
+            "Severity": 1,
+            "Issue": "High CPU Usage",
+            "Remediation": "Upgrade or optimize the current instances to handle the load better.",
+            "Affected Resources": [
+                {
+                    "name": "SQLDatabase01",
+                    "region": "us-east-1",
+                    "provider": "aws",
+                    "service": "RDS"
+                },
+                {
+                    "name": "WebServer02",
+                    "region": "europe-west1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                },
+                {
+                    "name": "StorageAccount03",
+                    "region": "us-east-2",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                }
+            ]
         },
         {
-          "name": "WebServer02",
-          "region": "europe-west1",
-          "provider": "gcp",
-          "service": "Compute Engine"
+            "Status": "Resolved",
+            "Severity": 2,
+            "Issue": "Data Breach",
+            "Remediation": "Investigate the breach source, inform affected users, and strengthen security measures.",
+            "Affected Resources": [
+                {
+                    "name": "WebServer02",
+                    "region": "europe-west1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                },
+                {
+                    "name": "StorageAccount03",
+                    "region": "us-east-2",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                },
+                {
+                    "name": "KubernetesCluster04",
+                    "region": "asia-east1",
+                    "provider": "gcp",
+                    "service": "GKE"
+                }
+            ]
         },
         {
-          "name": "StorageAccount03",
-          "region": "us-east-2",
-          "provider": "azure",
-          "service": "Blob Storage"
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "SSL Certificate Expiry",
+            "Remediation": "Renew SSL certificates before they expire to avoid service interruptions.",
+            "Affected Resources": [
+                {
+                    "name": "StorageAccount03",
+                    "region": "us-east-2",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                },
+                {
+                    "name": "KubernetesCluster04",
+                    "region": "asia-east1",
+                    "provider": "gcp",
+                    "service": "GKE"
+                },
+                {
+                    "name": "FunctionApp05",
+                    "region": "us-west-2",
+                    "provider": "azure",
+                    "service": "Azure Functions"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 4,
+            "Issue": "Over Provisioning",
+            "Remediation": "Adjust resource allocation to actual usage to reduce costs.",
+            "Affected Resources": [
+                {
+                    "name": "KubernetesCluster04",
+                    "region": "asia-east1",
+                    "provider": "gcp",
+                    "service": "GKE"
+                },
+                {
+                    "name": "FunctionApp05",
+                    "region": "us-west-2",
+                    "provider": "azure",
+                    "service": "Azure Functions"
+                },
+                {
+                    "name": "BigDataTable06",
+                    "region": "eu-west-1",
+                    "provider": "aws",
+                    "service": "DynamoDB"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 5,
+            "Issue": "Underutilized Database",
+            "Remediation": "Consider downsizing or terminating underutilized databases to save costs.",
+            "Affected Resources": [
+                {
+                    "name": "FunctionApp05",
+                    "region": "us-west-2",
+                    "provider": "azure",
+                    "service": "Azure Functions"
+                },
+                {
+                    "name": "BigDataTable06",
+                    "region": "eu-west-1",
+                    "provider": "aws",
+                    "service": "DynamoDB"
+                },
+                {
+                    "name": "CloudSQLDB07",
+                    "region": "us-central1",
+                    "provider": "gcp",
+                    "service": "Cloud SQL"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 1,
+            "Issue": "Security Group Misconfiguration",
+            "Remediation": "Review and correct inbound and outbound rules.",
+            "Affected Resources": [
+                {
+                    "name": "BigDataTable06",
+                    "region": "eu-west-1",
+                    "provider": "aws",
+                    "service": "DynamoDB"
+                },
+                {
+                    "name": "CloudSQLDB07",
+                    "region": "us-central1",
+                    "provider": "gcp",
+                    "service": "Cloud SQL"
+                },
+                {
+                    "name": "VirtualMachine08",
+                    "region": "uk-south",
+                    "provider": "azure",
+                    "service": "Virtual Machines"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Unencrypted Sensitive Data",
+            "Remediation": "Encrypt sensitive data in transit and at rest.",
+            "Affected Resources": [
+                {
+                    "name": "CloudSQLDB07",
+                    "region": "us-central1",
+                    "provider": "gcp",
+                    "service": "Cloud SQL"
+                },
+                {
+                    "name": "VirtualMachine08",
+                    "region": "uk-south",
+                    "provider": "azure",
+                    "service": "Virtual Machines"
+                },
+                {
+                    "name": "DataWarehouse09",
+                    "region": "us-west-1",
+                    "provider": "aws",
+                    "service": "Redshift"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "Root Account Usage",
+            "Remediation": "Avoid using root accounts for daily operations.",
+            "Affected Resources": [
+                {
+                    "name": "VirtualMachine08",
+                    "region": "uk-south",
+                    "provider": "azure",
+                    "service": "Virtual Machines"
+                },
+                {
+                    "name": "DataWarehouse09",
+                    "region": "us-west-1",
+                    "provider": "aws",
+                    "service": "Redshift"
+                },
+                {
+                    "name": "AutoScalingGroup10",
+                    "region": "asia-southeast1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 4,
+            "Issue": "Publicly Accessible Resources",
+            "Remediation": "Restrict access to resources to trusted IP ranges only.",
+            "Affected Resources": [
+                {
+                    "name": "DataWarehouse09",
+                    "region": "us-west-1",
+                    "provider": "aws",
+                    "service": "Redshift"
+                },
+                {
+                    "name": "AutoScalingGroup10",
+                    "region": "asia-southeast1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                },
+                {
+                    "name": "BlobContainer11",
+                    "region": "canada-central",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 5,
+            "Issue": "Out of Date Kernel",
+            "Remediation": "Apply the latest kernel updates to secure the systems.",
+            "Affected Resources": [
+                {
+                    "name": "AutoScalingGroup10",
+                    "region": "asia-southeast1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                },
+                {
+                    "name": "BlobContainer11",
+                    "region": "canada-central",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                },
+                {
+                    "name": "LambdaFunction12",
+                    "region": "us-east-1",
+                    "provider": "aws",
+                    "service": "Lambda"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 1,
+            "Issue": "API Rate Limiting Not Configured",
+            "Remediation": "Set up rate limiting to protect APIs from abuse.",
+            "Affected Resources": [
+                {
+                    "name": "BlobContainer11",
+                    "region": "canada-central",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                },
+                {
+                    "name": "LambdaFunction12",
+                    "region": "us-east-1",
+                    "provider": "aws",
+                    "service": "Lambda"
+                },
+                {
+                    "name": "APIGateway13",
+                    "region": "europe-north1",
+                    "provider": "gcp",
+                    "service": "API Gateway"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Logging and Monitoring Issues",
+            "Remediation": "Implement comprehensive logging and monitoring for all activities.",
+            "Affected Resources": [
+                {
+                    "name": "LambdaFunction12",
+                    "region": "us-east-1",
+                    "provider": "aws",
+                    "service": "Lambda"
+                },
+                {
+                    "name": "APIGateway13",
+                    "region": "europe-north1",
+                    "provider": "gcp",
+                    "service": "API Gateway"
+                },
+                {
+                    "name": "CosmosDB14",
+                    "region": "australia-east",
+                    "provider": "azure",
+                    "service": "Cosmos DB"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "Network Latency Problems",
+            "Remediation": "Optimize network configuration to improve latency.",
+            "Affected Resources": [
+                {
+                    "name": "APIGateway13",
+                    "region": "europe-north1",
+                    "provider": "gcp",
+                    "service": "API Gateway"
+                },
+                {
+                    "name": "CosmosDB14",
+                    "region": "australia-east",
+                    "provider": "azure",
+                    "service": "Cosmos DB"
+                },
+                {
+                    "name": "ElasticLoadBalancer15",
+                    "region": "us-east-2",
+                    "provider": "aws",
+                    "service": "ELB"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 4,
+            "Issue": "Incorrect IAM Permissions",
+            "Remediation": "Restrict IAM roles to least privilege access.",
+            "Affected Resources": [
+                {
+                    "name": "CosmosDB14",
+                    "region": "australia-east",
+                    "provider": "azure",
+                    "service": "Cosmos DB"
+                },
+                {
+                    "name": "ElasticLoadBalancer15",
+                    "region": "us-east-2",
+                    "provider": "aws",
+                    "service": "ELB"
+                },
+                {
+                    "name": "AppEngine16",
+                    "region": "us-central",
+                    "provider": "gcp",
+                    "service": "App Engine"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 5,
+            "Issue": "Container Vulnerabilities",
+            "Remediation": "Update containers to use secure base images.",
+            "Affected Resources": [
+                {
+                    "name": "ElasticLoadBalancer15",
+                    "region": "us-east-2",
+                    "provider": "aws",
+                    "service": "ELB"
+                },
+                {
+                    "name": "AppEngine16",
+                    "region": "us-central",
+                    "provider": "gcp",
+                    "service": "App Engine"
+                },
+                {
+                    "name": "QueueStorage17",
+                    "region": "japan-east",
+                    "provider": "azure",
+                    "service": "Queue Storage"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 1,
+            "Issue": "Hardcoded Secrets",
+            "Remediation": "Remove hardcoded secrets and use secret management tools.",
+            "Affected Resources": [
+                {
+                    "name": "AppEngine16",
+                    "region": "us-central",
+                    "provider": "gcp",
+                    "service": "App Engine"
+                },
+                {
+                    "name": "QueueStorage17",
+                    "region": "japan-east",
+                    "provider": "azure",
+                    "service": "Queue Storage"
+                },
+                {
+                    "name": "DocumentDB18",
+                    "region": "eu-west-3",
+                    "provider": "aws",
+                    "service": "DocumentDB"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Orphaned Resources",
+            "Remediation": "Identify and remove resources not in use.",
+            "Affected Resources": [
+                {
+                    "name": "QueueStorage17",
+                    "region": "japan-east",
+                    "provider": "azure",
+                    "service": "Queue Storage"
+                },
+                {
+                    "name": "DocumentDB18",
+                    "region": "eu-west-3",
+                    "provider": "aws",
+                    "service": "DocumentDB"
+                },
+                {
+                    "name": "PubSub19",
+                    "region": "us-west2",
+                    "provider": "gcp",
+                    "service": "Pub/Sub"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "Load Balancer Downtime",
+            "Remediation": "Ensure high availability configurations for load balancers.",
+            "Affected Resources": [
+                {
+                    "name": "DocumentDB18",
+                    "region": "eu-west-3",
+                    "provider": "aws",
+                    "service": "DocumentDB"
+                },
+                {
+                    "name": "PubSub19",
+                    "region": "us-west2",
+                    "provider": "gcp",
+                    "service": "Pub/Sub"
+                },
+                {
+                    "name": "DiskStorage20",
+                    "region": "brazil-south",
+                    "provider": "azure",
+                    "service": "Disk Storage"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 4,
+            "Issue": "Deprecated API Usage",
+            "Remediation": "Migrate to supported APIs to ensure functionality.",
+            "Affected Resources": [
+                {
+                    "name": "PubSub19",
+                    "region": "us-west2",
+                    "provider": "gcp",
+                    "service": "Pub/Sub"
+                },
+                {
+                    "name": "DiskStorage20",
+                    "region": "brazil-south",
+                    "provider": "azure",
+                    "service": "Disk Storage"
+                },
+                {
+                    "name": "SQLDatabase01",
+                    "region": "us-east-1",
+                    "provider": "aws",
+                    "service": "RDS"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 5,
+            "Issue": "High Memory Usage",
+            "Remediation": "Analyze and optimize application memory usage.",
+            "Affected Resources": [
+                {
+                    "name": "DiskStorage20",
+                    "region": "brazil-south",
+                    "provider": "azure",
+                    "service": "Disk Storage"
+                },
+                {
+                    "name": "SQLDatabase01",
+                    "region": "us-east-1",
+                    "provider": "aws",
+                    "service": "RDS"
+                },
+                {
+                    "name": "WebServer02",
+                    "region": "europe-west1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 2,
-      "Issue": "Data Breach",
-      "Remediation": "Investigate the breach source, inform affected users, and strengthen security measures.",
-      "Affected Resources": [
-        {
-          "name": "WebServer02",
-          "region": "europe-west1",
-          "provider": "gcp",
-          "service": "Compute Engine"
-        },
-        {
-          "name": "StorageAccount03",
-          "region": "us-east-2",
-          "provider": "azure",
-          "service": "Blob Storage"
-        },
-        {
-          "name": "KubernetesCluster04",
-          "region": "asia-east1",
-          "provider": "gcp",
-          "service": "GKE"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "SSL Certificate Expiry",
-      "Remediation": "Renew SSL certificates before they expire to avoid service interruptions.",
-      "Affected Resources": [
-        {
-          "name": "StorageAccount03",
-          "region": "us-east-2",
-          "provider": "azure",
-          "service": "Blob Storage"
-        },
-        {
-          "name": "KubernetesCluster04",
-          "region": "asia-east1",
-          "provider": "gcp",
-          "service": "GKE"
-        },
-        {
-          "name": "FunctionApp05",
-          "region": "us-west-2",
-          "provider": "azure",
-          "service": "Azure Functions"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 4,
-      "Issue": "Over Provisioning",
-      "Remediation": "Adjust resource allocation to actual usage to reduce costs.",
-      "Affected Resources": [
-        {
-          "name": "KubernetesCluster04",
-          "region": "asia-east1",
-          "provider": "gcp",
-          "service": "GKE"
-        },
-        {
-          "name": "FunctionApp05",
-          "region": "us-west-2",
-          "provider": "azure",
-          "service": "Azure Functions"
-        },
-        {
-          "name": "BigDataTable06",
-          "region": "eu-west-1",
-          "provider": "aws",
-          "service": "DynamoDB"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 5,
-      "Issue": "Underutilized Database",
-      "Remediation": "Consider downsizing or terminating underutilized databases to save costs.",
-      "Affected Resources": [
-        {
-          "name": "FunctionApp05",
-          "region": "us-west-2",
-          "provider": "azure",
-          "service": "Azure Functions"
-        },
-        {
-          "name": "BigDataTable06",
-          "region": "eu-west-1",
-          "provider": "aws",
-          "service": "DynamoDB"
-        },
-        {
-          "name": "CloudSQLDB07",
-          "region": "us-central1",
-          "provider": "gcp",
-          "service": "Cloud SQL"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 1,
-      "Issue": "Security Group Misconfiguration",
-      "Remediation": "Review and correct inbound and outbound rules.",
-      "Affected Resources": [
-        {
-          "name": "BigDataTable06",
-          "region": "eu-west-1",
-          "provider": "aws",
-          "service": "DynamoDB"
-        },
-        {
-          "name": "CloudSQLDB07",
-          "region": "us-central1",
-          "provider": "gcp",
-          "service": "Cloud SQL"
-        },
-        {
-          "name": "VirtualMachine08",
-          "region": "uk-south",
-          "provider": "azure",
-          "service": "Virtual Machines"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 2,
-      "Issue": "Unencrypted Sensitive Data",
-      "Remediation": "Encrypt sensitive data in transit and at rest.",
-      "Affected Resources": [
-        {
-          "name": "CloudSQLDB07",
-          "region": "us-central1",
-          "provider": "gcp",
-          "service": "Cloud SQL"
-        },
-        {
-          "name": "VirtualMachine08",
-          "region": "uk-south",
-          "provider": "azure",
-          "service": "Virtual Machines"
-        },
-        {
-          "name": "DataWarehouse09",
-          "region": "us-west-1",
-          "provider": "aws",
-          "service": "Redshift"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Root Account Usage",
-      "Remediation": "Avoid using root accounts for daily operations.",
-      "Affected Resources": [
-        {
-          "name": "VirtualMachine08",
-          "region": "uk-south",
-          "provider": "azure",
-          "service": "Virtual Machines"
-        },
-        {
-          "name": "DataWarehouse09",
-          "region": "us-west-1",
-          "provider": "aws",
-          "service": "Redshift"
-        },
-        {
-          "name": "AutoScalingGroup10",
-          "region": "asia-southeast1",
-          "provider": "gcp",
-          "service": "Compute Engine"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 4,
-      "Issue": "Publicly Accessible Resources",
-      "Remediation": "Restrict access to resources to trusted IP ranges only.",
-      "Affected Resources": [
-        {
-          "name": "DataWarehouse09",
-          "region": "us-west-1",
-          "provider": "aws",
-          "service": "Redshift"
-        },
-        {
-          "name": "AutoScalingGroup10",
-          "region": "asia-southeast1",
-          "provider": "gcp",
-          "service": "Compute Engine"
-        },
-        {
-          "name": "BlobContainer11",
-          "region": "canada-central",
-          "provider": "azure",
-          "service": "Blob Storage"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 5,
-      "Issue": "Out of Date Kernel",
-      "Remediation": "Apply the latest kernel updates to secure the systems.",
-      "Affected Resources": [
-        {
-          "name": "AutoScalingGroup10",
-          "region": "asia-southeast1",
-          "provider": "gcp",
-          "service": "Compute Engine"
-        },
-        {
-          "name": "BlobContainer11",
-          "region": "canada-central",
-          "provider": "azure",
-          "service": "Blob Storage"
-        },
-        {
-          "name": "LambdaFunction12",
-          "region": "us-east-1",
-          "provider": "aws",
-          "service": "Lambda"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 1,
-      "Issue": "API Rate Limiting Not Configured",
-      "Remediation": "Set up rate limiting to protect APIs from abuse.",
-      "Affected Resources": [
-        {
-          "name": "BlobContainer11",
-          "region": "canada-central",
-          "provider": "azure",
-          "service": "Blob Storage"
-        },
-        {
-          "name": "LambdaFunction12",
-          "region": "us-east-1",
-          "provider": "aws",
-          "service": "Lambda"
-        },
-        {
-          "name": "APIGateway13",
-          "region": "europe-north1",
-          "provider": "gcp",
-          "service": "API Gateway"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 2,
-      "Issue": "Logging and Monitoring Issues",
-      "Remediation": "Implement comprehensive logging and monitoring for all activities.",
-      "Affected Resources": [
-        {
-          "name": "LambdaFunction12",
-          "region": "us-east-1",
-          "provider": "aws",
-          "service": "Lambda"
-        },
-        {
-          "name": "APIGateway13",
-          "region": "europe-north1",
-          "provider": "gcp",
-          "service": "API Gateway"
-        },
-        {
-          "name": "CosmosDB14",
-          "region": "australia-east",
-          "provider": "azure",
-          "service": "Cosmos DB"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Network Latency Problems",
-      "Remediation": "Optimize network configuration to improve latency.",
-      "Affected Resources": [
-        {
-          "name": "APIGateway13",
-          "region": "europe-north1",
-          "provider": "gcp",
-          "service": "API Gateway"
-        },
-        {
-          "name": "CosmosDB14",
-          "region": "australia-east",
-          "provider": "azure",
-          "service": "Cosmos DB"
-        },
-        {
-          "name": "ElasticLoadBalancer15",
-          "region": "us-east-2",
-          "provider": "aws",
-          "service": "ELB"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 4,
-      "Issue": "Incorrect IAM Permissions",
-      "Remediation": "Restrict IAM roles to least privilege access.",
-      "Affected Resources": [
-        {
-          "name": "CosmosDB14",
-          "region": "australia-east",
-          "provider": "azure",
-          "service": "Cosmos DB"
-        },
-        {
-          "name": "ElasticLoadBalancer15",
-          "region": "us-east-2",
-          "provider": "aws",
-          "service": "ELB"
-        },
-        {
-          "name": "AppEngine16",
-          "region": "us-central",
-          "provider": "gcp",
-          "service": "App Engine"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 5,
-      "Issue": "Container Vulnerabilities",
-      "Remediation": "Update containers to use secure base images.",
-      "Affected Resources": [
-        {
-          "name": "ElasticLoadBalancer15",
-          "region": "us-east-2",
-          "provider": "aws",
-          "service": "ELB"
-        },
-        {
-          "name": "AppEngine16",
-          "region": "us-central",
-          "provider": "gcp",
-          "service": "App Engine"
-        },
-        {
-          "name": "QueueStorage17",
-          "region": "japan-east",
-          "provider": "azure",
-          "service": "Queue Storage"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 1,
-      "Issue": "Hardcoded Secrets",
-      "Remediation": "Remove hardcoded secrets and use secret management tools.",
-      "Affected Resources": [
-        {
-          "name": "AppEngine16",
-          "region": "us-central",
-          "provider": "gcp",
-          "service": "App Engine"
-        },
-        {
-          "name": "QueueStorage17",
-          "region": "japan-east",
-          "provider": "azure",
-          "service": "Queue Storage"
-        },
-        {
-          "name": "DocumentDB18",
-          "region": "eu-west-3",
-          "provider": "aws",
-          "service": "DocumentDB"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 2,
-      "Issue": "Orphaned Resources",
-      "Remediation": "Identify and remove resources not in use.",
-      "Affected Resources": [
-        {
-          "name": "QueueStorage17",
-          "region": "japan-east",
-          "provider": "azure",
-          "service": "Queue Storage"
-        },
-        {
-          "name": "DocumentDB18",
-          "region": "eu-west-3",
-          "provider": "aws",
-          "service": "DocumentDB"
-        },
-        {
-          "name": "PubSub19",
-          "region": "us-west2",
-          "provider": "gcp",
-          "service": "Pub/Sub"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Load Balancer Downtime",
-      "Remediation": "Ensure high availability configurations for load balancers.",
-      "Affected Resources": [
-        {
-          "name": "DocumentDB18",
-          "region": "eu-west-3",
-          "provider": "aws",
-          "service": "DocumentDB"
-        },
-        {
-          "name": "PubSub19",
-          "region": "us-west2",
-          "provider": "gcp",
-          "service": "Pub/Sub"
-        },
-        {
-          "name": "DiskStorage20",
-          "region": "brazil-south",
-          "provider": "azure",
-          "service": "Disk Storage"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 4,
-      "Issue": "Deprecated API Usage",
-      "Remediation": "Migrate to supported APIs to ensure functionality.",
-      "Affected Resources": [
-        {
-          "name": "PubSub19",
-          "region": "us-west2",
-          "provider": "gcp",
-          "service": "Pub/Sub"
-        },
-        {
-          "name": "DiskStorage20",
-          "region": "brazil-south",
-          "provider": "azure",
-          "service": "Disk Storage"
-        },
-        {
-          "name": "SQLDatabase01",
-          "region": "us-east-1",
-          "provider": "aws",
-          "service": "RDS"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 5,
-      "Issue": "High Memory Usage",
-      "Remediation": "Analyze and optimize application memory usage.",
-      "Affected Resources": [
-        {
-          "name": "DiskStorage20",
-          "region": "brazil-south",
-          "provider": "azure",
-          "service": "Disk Storage"
-        },
-        {
-          "name": "SQLDatabase01",
-          "region": "us-east-1",
-          "provider": "aws",
-          "service": "RDS"
-        },
-        {
-          "name": "WebServer02",
-          "region": "europe-west1",
-          "provider": "gcp",
-          "service": "Compute Engine"
-        }
-      ]
-    }
-  ]
+    ]
 }

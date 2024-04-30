@@ -1,0 +1,6 @@
+terraform/prezdemo/.terraform.lock.hcl
+terraform/prezdemo/example-key.pem
+terraform/prezdemo/.terraform/providers/registry.terraform.io/hashicorp/aws/5.47.0/windows_amd64/terraform-provider-aws_v5.47.0_x5.exe
+terraform/prezdemo/terraform.tfstate.backup
+terraform/prezdemo/terraform.tfstate
+terraform/prezdemo/terraform.exe
