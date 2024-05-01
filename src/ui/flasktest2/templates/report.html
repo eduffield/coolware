@@ -47,8 +47,15 @@ Status: {{ item.Status }}
                             </pre>
                         </div>
                         <div class="col-auto">
-                            <button type="button" class="btn btn-secondary ignore-btn" onclick="ignoreReport('{{ filename }}', '{{ loop.index0 }}')">Ignore</button>
-                            <button type="button" class="btn btn-success resolve-btn" onclick="resolveReport('{{ filename }}', '{{ loop.index0 }}')">Resolve</button>
+                            {% if item.Status != "Ignored" %}
+                                <button type="button" class="btn btn-secondary ignore-btn" onclick="ignoreReport('{{ filename }}', '{{ loop.index0 }}')">Ignore</button>
+                            {% endif %}
+                            {% if item.Status != "Resolved" %}
+                                <button type="button" class="btn btn-success resolve-btn" onclick="resolveReport('{{ filename }}', '{{ loop.index0 }}')">Resolve</button>
+                            {% endif %}
+                            {% if item.Status != "Active" %}
+                                <button type="button" class="btn btn-danger resolve-btn" onclick="activeReport('{{ filename }}', '{{ loop.index0 }}')">Make Active</button>
+                            {% endif %}
                         </div>
                         <div class="col-auto">
                             <a href="{{ url_for('issue_details', filename=filename, index=loop.index0) }}" class="btn btn-info">View Details</a>
@@ -56,7 +63,8 @@ Status: {{ item.Status }}
                     </div>
                 </div>
             </div>
-            {% endfor %}
+        {% endfor %}
+
         </div>
         <br>
         <br>
@@ -181,6 +189,31 @@ Status: {{ item.Status }}
         })
         .catch(error => {
             console.error('Error ignoring report:', error);
+            // Handle error appropriately (e.g., display a message to the user)
+        });
+    }
+
+    function activeReport(filename, index) {
+        // Send a POST request to the Flask server to activate the issue
+        fetch(`/activate_issue/${filename}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the request is successful, reload the page to reflect the changes
+                location.reload();
+            } else {
+                throw new Error('Failed to activate issue');
+            }
+        })
+        .catch(error => {
+            console.error('Error activating issue:', error);
             // Handle error appropriately (e.g., display a message to the user)
         });
     }

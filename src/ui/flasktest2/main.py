@@ -73,6 +73,23 @@ def ignore_report(filename):
         flash(f'Failed to update report status: {e}', 'error')
     return redirect(url_for('index'))
 
+@app.route('/activate_issue/<filename>', methods=['POST'])
+def activate_issue(filename):
+    try:
+        json_file_path = os.path.join('Reports', filename)
+        index = int(request.json['index'])  # Get the index of the issue from the request
+        with open(json_file_path, 'r+') as file:
+            report_data = json.load(file)
+            # Update the status of the specified issue to "Active"
+            report_data['Report Contents'][index]['Status'] = "Active"
+            file.seek(0)
+            json.dump(report_data, file, indent=4)
+            file.truncate()
+        flash('Issue status updated to Active successfully!', 'success')
+    except Exception as e:
+        flash(f'Failed to update issue status: {e}', 'error')
+    return redirect(url_for('index'))
+
 @app.route('/report/<filename>/issue/<int:index>')
 def issue_details(filename, index):
     json_file_path = os.path.join('Reports', filename)
@@ -83,6 +100,7 @@ def issue_details(filename, index):
             return render_template('issue.html', filename=filename, issue_data=issue_data)
     else:
         return "File not found"
+
 
 
 if __name__ == '__main__':
