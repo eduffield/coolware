@@ -38,7 +38,7 @@ resource "aws_security_group" "blog_sg" {
 resource "aws_instance" "blog_instance" {
   ami           = "ami-0b0ea68c435eb488d"
   instance_type = "t2.micro"
-  key_name      = "example-key"            # Ensure you have this key pair available
+  # key_name      = "example-key"            # Ensure you have this key pair available
   security_groups = [aws_security_group.blog_sg.name]
 
   user_data = <<-EOF
@@ -60,6 +60,7 @@ resource "aws_instance" "blog_instance" {
   }
 }
 
+/*
 resource "aws_db_instance" "blog_db" {
   allocated_storage    = 20
   storage_type         = "gp2"
@@ -76,7 +77,7 @@ resource "aws_db_instance" "blog_db" {
     Name = "ExampleBlogDB"
   }
 }
-
+*/
 resource "aws_elb" "blog_elb" {
   name               = "example-blog-elb"
   availability_zones = ["us-east-1a", "us-east-1b"]

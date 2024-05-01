@@ -175,7 +175,6 @@ def mitre_check_excessive_permissions():
                 VersionId=policy['DefaultVersionId']
             )
             document = policy_version['PolicyVersion']['Document']
-            # Logic to analyze policy document for excessive permissions goes here
             print(f"Checking policy: {policy['PolicyName']}")
 
     except Exception as e:
@@ -337,3 +336,5 @@ if __name__ == '__main__':
 
 
     run_report(my_report)
+
+    my_report.write_to_json("./Reports")

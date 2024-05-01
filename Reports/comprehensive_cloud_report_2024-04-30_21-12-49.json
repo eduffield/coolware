@@ -1,0 +1,26 @@
+{
+  "Report Date": "2024-04-30_21-12-49",
+  "Report Contents": [
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Security Group 'launch-wizard-3' allows public access.",
+      "Remediation": "Restrict access to known IPs or internal networks.",
+      "Affected Resources": []
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Security Group 'launch-wizard-3' allows public access.",
+      "Remediation": "Restrict access to known IPs or internal networks.",
+      "Affected Resources": []
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Security Group 'launch-wizard-3' allows public access.",
+      "Remediation": "Restrict access to known IPs or internal networks.",
+      "Affected Resources": []
+    }
+  ]
+}

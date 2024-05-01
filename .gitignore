@@ -4,3 +4,15 @@ terraform/prezdemo/.terraform/providers/registry.terraform.io/hashicorp/aws/5.47
 terraform/prezdemo/terraform.tfstate.backup
 terraform/prezdemo/terraform.tfstate
 terraform/prezdemo/terraform.exe
+terraform/prezdemo/2/__pycache__/Report.cpython-312.pyc
+terraform/prezdemo/2/__pycache__/AWS.cpython-312.pyc
+terraform/prezdemo/2/.terraform/providers/registry.terraform.io/hashicorp/aws/5.47.0/windows_amd64/terraform-provider-aws_v5.47.0_x5.exe
+terraform/prezdemo/2/terraform.tfstate.backup
+terraform/prezdemo/2/terraform.tfstate
+terraform/prezdemo/2/terraform.exe
+terraform/prezdemo/2/.terraform.lock.hcl
+terraform/prezdemo/1/.terraform/providers/registry.terraform.io/hashicorp/aws/5.47.0/windows_amd64/terraform-provider-aws_v5.47.0_x5.exe
+terraform/prezdemo/1/terraform.tfstate.backup
+terraform/prezdemo/1/terraform.tfstate
+terraform/prezdemo/1/terraform.exe
+terraform/prezdemo/1/.terraform.lock.hcl
