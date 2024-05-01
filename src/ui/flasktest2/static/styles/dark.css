@@ -10,7 +10,8 @@ body {
 }
 
 .container {
-    background-color: #303030;
+    background-color: #363742;
+    /*background-color: #303030;*/
 }
 
 .list-group, .list-group-item{
@@ -27,7 +28,7 @@ body {
     margin-top: 50px;
 }
 
-h1, h2 {
+h1, h2, h3 {
     color: #c4abe0;
 }
 

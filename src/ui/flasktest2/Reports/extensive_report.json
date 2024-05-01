@@ -2,7 +2,7 @@
     "Report Date": "2024-01-14",
     "Report Contents": [
         {
-            "Status": "Ignored",
+            "Status": "Active",
             "Severity": 1,
             "Issue": "High CPU Usage",
             "Remediation": "Upgrade or optimize the current instances to handle the load better.",
@@ -28,7 +28,7 @@
             ]
         },
         {
-            "Status": "Active",
+            "Status": "Ignored",
             "Severity": 2,
             "Issue": "Data Breach",
             "Remediation": "Investigate the breach source, inform affected users, and strengthen security measures.",
@@ -80,7 +80,7 @@
             ]
         },
         {
-            "Status": "Active",
+            "Status": "Ignored",
             "Severity": 4,
             "Issue": "Over Provisioning",
             "Remediation": "Adjust resource allocation to actual usage to reduce costs.",
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "Status": "Active",
+            "Status": "Resolved",
             "Severity": 5,
             "Issue": "Underutilized Database",
             "Remediation": "Consider downsizing or terminating underutilized databases to save costs.",

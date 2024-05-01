@@ -13,17 +13,19 @@
     <br>
     <h1 style="text-align:center;">Issue Details</h1>
     <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('report', filename=filename) }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Report</button>
+    <br>
+    <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
 
     <div class="container">
-        <div class="card">
+        <div class="list-group list-group-flush">
             <div class="card-header">
-                <h3>{{ issue_data["Issue"] }}</h3>
+                <h2>{{ issue_data["Issue"] }}</h2>
             </div>
             <div class="card-body">
                 <p><strong>Status:</strong> {{ issue_data["Status"] }}</p>
                 <p><strong>Severity:</strong> {{ issue_data["Severity"] }}</p>
                 <p><strong>Remediation:</strong> {{ issue_data["Remediation"] }}</p>
-                <h5>Affected Resources:</h5>
+                <h3>Affected Resources:</h3>
                 <ul class="list-group">
                     {% for resource in issue_data["Affected Resources"] %}
                     <li class="list-group-item">
@@ -38,9 +40,9 @@
         </div>
     </div>
     <br>
+    <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('report', filename=filename) }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Report</button>
     <br>
     <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
-    <br>
     <br>
 
     <script>
