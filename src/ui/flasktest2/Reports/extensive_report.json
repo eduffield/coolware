@@ -2,7 +2,7 @@
     "Report Date": "2024-01-14",
     "Report Contents": [
         {
-            "Status": "Resolved",
+            "Status": "Active",
             "Severity": 1,
             "Issue": "High CPU Usage",
             "Remediation": "Upgrade or optimize the current instances to handle the load better.",
@@ -54,7 +54,7 @@
             ]
         },
         {
-            "Status": "Resolved",
+            "Status": "Active",
             "Severity": 3,
             "Issue": "SSL Certificate Expiry",
             "Remediation": "Renew SSL certificates before they expire to avoid service interruptions.",

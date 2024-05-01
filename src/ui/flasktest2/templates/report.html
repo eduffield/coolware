@@ -16,6 +16,8 @@
         <h2 style="text-align:center;">{{ report_data["Report Date"] }} @ 9:16PM</h2>
         <br>
         <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('index') }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Homepage</button>
+        <br>
+        <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
         <!--
             TODO: Load time from json
         -->
@@ -67,6 +69,8 @@ Status: {{ item.Status }}
 
         </div>
         <br>
+        <br>
+        <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('index') }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Homepage</button>
         <br>
         <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
         <br>
