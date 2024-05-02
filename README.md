@@ -22,13 +22,12 @@ Open your browser to http://127.0.0.1:5000/
 Note: Please have a provider CLI installed and configured before using terraform.
 
 1. Install Terraform from [here.](https://developer.hashicorp.com/terraform/install)
-2. Create a .pem key for your provider and place it in the same directory as main.tf.
-3. Run 'terraform init' in the directory of the demo you wish to run. Ex. ("aws ec2 create-key-pair --key-name example-key --query 'KeyMaterial' --output text > example-key.pem").
-4. Run 'terraform plan'.
-5. Run 'terraform apply'.
-6. Run the tool.
-7. Once the report is done generating, run 'terraform destroy'.
-8. Check the expected report with the generated report with the pytest.py file in the terraform directory.
+2. Run 'terraform init' in the directory of the demo you wish to run.
+3. Run 'terraform plan'.
+4. Run 'terraform apply'.
+5. Run the tool.
+6. Once the report is done generating, run 'terraform destroy'.
+7. Check the expected report with the generated report with the pytest.py file in the terraform directory.
 
 
 ## Developed by:

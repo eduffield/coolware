@@ -59,24 +59,24 @@ resource "aws_instance" "blog_instance" {
   }
 }
 
-/*
+
 resource "aws_db_instance" "blog_db" {
   allocated_storage    = 20
   storage_type         = "gp2"
   engine               = "postgres"
-  engine_version       = "12"  # Adjust to a compatible version if necessary
-  instance_class       = "db.t3.micro"  # Updated instance class
-  db_name                 = "exampleblogdb"
+  engine_version       = "14" 
+  instance_class       = "db.t3.micro" 
+  db_name              = "exampleblogdb"
   username             = "dbadmin"
   password             = "securepassword"
-  parameter_group_name = "default.postgres12"
+  parameter_group_name = "default.postgres14"
   skip_final_snapshot  = true
 
   tags = {
     Name = "ExampleBlogDB"
   }
 }
-*/
+
 resource "aws_elb" "blog_elb" {
   name               = "example-blog-elb"
   availability_zones = ["us-east-1a", "us-east-1b"]
