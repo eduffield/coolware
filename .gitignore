@@ -16,3 +16,4 @@ terraform/prezdemo/1/terraform.tfstate.backup
 terraform/prezdemo/1/terraform.tfstate
 terraform/prezdemo/1/terraform.exe
 terraform/prezdemo/1/.terraform.lock.hcl
+terraform/prezdemo/1/.terraform.tfstate.lock.info

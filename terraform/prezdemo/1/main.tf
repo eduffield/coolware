@@ -4,9 +4,8 @@ provider "aws" {
 
 # EC2 Instance for the Django Application
 resource "aws_instance" "blog_instance" {
-  ami           = "ami-0e001c9271cf7f3b9"  # Replace with a valid AMI
+  ami           = "ami-0e001c9271cf7f3b9"
   instance_type = "t2.micro"
-  #key_name      = "example-key"
   security_groups = [aws_security_group.web_sg.name]
 
   tags = {

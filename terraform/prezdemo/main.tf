@@ -38,7 +38,6 @@ resource "aws_security_group" "blog_sg" {
 resource "aws_instance" "blog_instance" {
   ami           = "ami-0b0ea68c435eb488d"
   instance_type = "t2.micro"
-  # key_name      = "example-key"            # Ensure you have this key pair available
   security_groups = [aws_security_group.blog_sg.name]
 
   user_data = <<-EOF
