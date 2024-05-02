@@ -10,6 +10,8 @@ Written by: Evan Duffield
 import boto3
 from botocore.exceptions import NoCredentialsError
 from datetime import datetime
+from Report import Repor
+import json
 from Report import Report
 
 RED_ALERT_PORTS = 21, 22, 80
