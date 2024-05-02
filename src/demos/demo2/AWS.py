@@ -186,7 +186,6 @@ def mitre_monitor_network_traffic():
         flow_logs = ec2_client.describe_flow_logs()
 
         for flow_log in flow_logs['FlowLogs']:
-            # Logic to analyze flow log data for unusual traffic patterns goes here
             print(f"Monitoring network traffic for Flow Log ID: {flow_log['FlowLogId']}")
 
     except Exception as e:
@@ -218,7 +217,6 @@ def mitre_validate_security_group_configs():
 
         for sg in security_groups:
             for rule in sg['IpPermissions']:
-                # Check for overly permissive rules (e.g., allowing access from 0.0.0.0/0)
                 for ip_range in rule.get('IpRanges', []):
                     if ip_range.get('CidrIp') == '0.0.0.0/0':
                         print(f"Overly permissive rule found in SG {sg['GroupId']} for port {rule.get('FromPort')}")
@@ -234,7 +232,6 @@ def mitre_assess_s3_permissions():
         for bucket in buckets:
             acl = s3_client.get_bucket_acl(Bucket=bucket['Name'])
             for grant in acl['Grants']:
-                # Check for public access permissions
                 if grant['Grantee'].get('Type') == 'Group' and grant['Grantee'].get('URI') == 'http://acs.amazonaws.com/groups/global/AllUsers':
                     print(f"Public access found in bucket: {bucket['Name']}")
 
@@ -244,7 +241,6 @@ def mitre_assess_s3_permissions():
 def mitre_detect_anomalous_behavior():
     try:
         cloudtrail_client = boto3.client('cloudtrail')
-        # Assume you have a baseline of "normal" events (this is simplistic and should be more robust in real usage)
         normal_events = ['DescribeInstances', 'ListBuckets']
 
         events = cloudtrail_client.lookup_events(MaxResults=50)
@@ -310,7 +306,6 @@ def run_report(my_report):
             print("-" * 40)
 
             
-        ### Print any EC2 containers that use the invalid security groups
         for sg in invalid_sgs:
             security_group_id_to_query = sg.group_id
             ec2_instances_list = get_ec2_instances_by_security_group(security_group_id_to_query)

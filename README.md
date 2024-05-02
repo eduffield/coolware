@@ -28,6 +28,7 @@ Note: Please have a provider CLI installed and configured before using terraform
 5. Run 'terraform apply'.
 6. Run the tool.
 7. Once the report is done generating, run 'terraform destroy'.
+8. Check the expected report with the generated report with the pytest.py file in the terraform directory.
 
 
 ## Developed by:

@@ -37,24 +37,17 @@ class Report:
         with open(file_path, 'w') as json_file:
             json.dump(report_data, json_file, indent=2)
 
-# Example Usage:
 if __name__ == "__main__":
-    # Create a Report instance with a specific date
     my_report = Report("2024-01-14")
 
-    # Add issues to the report
     my_report.add_issue(1, "Low Disk Space", "Free up space by deleting unnecessary files or moving them to an external drive.")
     my_report.add_issue(2, "Outdated Software", "Update the software to the latest version to patch security vulnerabilities and improve performance.")
     my_report.add_issue(3, "Weak Passwords", "Change passwords to strong and unique combinations to enhance account security.")
 
-    # List issues
     my_report.list_issues()
 
-    # Filter issues with severity >= 2
     my_report.filter_issues(2)
 
-    # Clear the report
     my_report.clear_report()
 
-    # Write the report to a JSON file
     my_report.write_to_json("example_report.json")

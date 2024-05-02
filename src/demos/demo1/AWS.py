@@ -1,12 +1,3 @@
-'''
-
-AWS core security module
-
-Written by: Evan Duffield
-
-'''
-
-
 import boto3
 from botocore.exceptions import NoCredentialsError
 
@@ -139,7 +130,6 @@ if __name__ == '__main__':
             print("-" * 40)
 
             
-        ### Print any EC2 containers that use the invalid security groups
         for sg in invalid_sgs:
             security_group_id_to_query = sg.group_id
             ec2_instances_list = get_ec2_instances_by_security_group(security_group_id_to_query)

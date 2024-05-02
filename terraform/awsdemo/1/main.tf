@@ -2,7 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# EC2 Instance for the Django Application
 resource "aws_instance" "blog_instance" {
   ami           = "ami-0e001c9271cf7f3b9"
   instance_type = "t2.micro"
@@ -13,7 +12,6 @@ resource "aws_instance" "blog_instance" {
   }
 }
 
-# Security Group for Web Traffic
 resource "aws_security_group" "web_sg" {
   name = "web-sg"
 

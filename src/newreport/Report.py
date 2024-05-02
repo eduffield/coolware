@@ -60,11 +60,9 @@ class Report:
         with open(file_path, 'w') as json_file:
             json.dump(report_data, json_file, indent=2)
 
-# Example Usage:
 if __name__ == "__main__":
     my_report = Report("2024-01-14")
 
-    # Creating an expanded variety of resources
     resources = [
         Resource(name="SQLDatabase01", region="us-east-1", provider="aws", service="RDS"),
         Resource(name="WebServer02", region="europe-west1", provider="gcp", service="Compute Engine"),
@@ -88,7 +86,6 @@ if __name__ == "__main__":
         Resource(name="DiskStorage20", region="brazil-south", provider="azure", service="Disk Storage")
     ]
 
-    # Adding a diverse set of 20 issues
     issues = [
         ("High CPU Usage", "Upgrade or optimize the current instances to handle the load better."),
         ("Data Breach", "Investigate the breach source, inform affected users, and strengthen security measures."),
@@ -112,11 +109,9 @@ if __name__ == "__main__":
         ("High Memory Usage", "Analyze and optimize application memory usage.")
     ]
 
-    # Mapping issues to resources in a round-robin fashion for simplicity
     for i in range(20):
         selected_resources = resources[i:] + resources[:i]  # rotating resource list
         my_report.add_issue(i % 5 + 1, issues[i][0], issues[i][1], selected_resources[:3])
 
-    # Writing to JSON
     my_report.write_to_json("extensive_report.json")
 
