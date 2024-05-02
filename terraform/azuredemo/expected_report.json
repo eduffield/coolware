@@ -1,0 +1,61 @@
+{
+    "Report Date": "2024-01-14",
+    "Report Contents": [
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Publicly Accessible Storage Account",
+            "Remediation": "Modify the storage account's network access rules to deny public access.",
+            "Affected Resources": [
+                {
+                    "name": "examplestorage",
+                    "region": "East US",
+                    "provider": "azure",
+                    "service": "Blob Storage"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "SQL Database without SSL",
+            "Remediation": "Enable SSL on the SQL database to encrypt data in transit.",
+            "Affected Resources": [
+                {
+                    "name": "example-sqldb",
+                    "region": "East US",
+                    "provider": "azure",
+                    "service": "SQL Database"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Virtual Machine with Public IP",
+            "Remediation": "Review the necessity of a public IP address or secure it with stricter network rules.",
+            "Affected Resources": [
+                {
+                    "name": "exampleVM",
+                    "region": "East US",
+                    "provider": "azure",
+                    "service": "Virtual Machines"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "Unencrypted Virtual Machine Disk",
+            "Remediation": "Enable disk encryption to protect sensitive data at rest.",
+            "Affected Resources": [
+                {
+                    "name": "exampleVM",
+                    "region": "East US",
+                    "provider": "azure",
+                    "service": "Virtual Machines"
+                }
+            ]
+        }
+    ]
+}

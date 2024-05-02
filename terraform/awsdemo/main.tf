@@ -59,7 +59,7 @@ resource "aws_instance" "blog_instance" {
   }
 }
 
-
+/*
 resource "aws_db_instance" "blog_db" {
   allocated_storage    = 20
   storage_type         = "gp2"
@@ -76,6 +76,7 @@ resource "aws_db_instance" "blog_db" {
     Name = "ExampleBlogDB"
   }
 }
+*/
 
 resource "aws_elb" "blog_elb" {
   name               = "example-blog-elb"

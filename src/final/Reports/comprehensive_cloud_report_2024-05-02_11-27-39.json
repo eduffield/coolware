@@ -1,24 +1,31 @@
 {
-  "Report Date": "2024-04-30_21-12-49",
+  "Report Date": "2024-05-02_11-27-39",
   "Report Contents": [
     {
       "Status": "Active",
       "Severity": 2,
-      "Issue": "Security Group 'launch-wizard-3' allows public access.",
+      "Issue": "Security Group 'default_elb_c023b1f5-f29a-353a-8319-33e425374bcc' allows public access.",
       "Remediation": "Restrict access to known IPs or internal networks.",
       "Affected Resources": []
     },
     {
       "Status": "Active",
       "Severity": 2,
-      "Issue": "Security Group 'launch-wizard-3' allows public access.",
+      "Issue": "Security Group 'blog_sg' allows public access.",
       "Remediation": "Restrict access to known IPs or internal networks.",
       "Affected Resources": []
     },
     {
       "Status": "Active",
       "Severity": 2,
-      "Issue": "Security Group 'launch-wizard-3' allows public access.",
+      "Issue": "Security Group 'blog_sg' allows public access.",
+      "Remediation": "Restrict access to known IPs or internal networks.",
+      "Affected Resources": []
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Security Group 'blog_sg' allows public access.",
       "Remediation": "Restrict access to known IPs or internal networks.",
       "Affected Resources": []
     }

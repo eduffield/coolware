@@ -13,7 +13,13 @@ Supports security inspections for AWS, Azure, and GCP providers.
 ```
 cd ./src/final
 
-python3 main.py
+# Generate a new report
+
+python3 main.py makereport
+
+# View reports
+
+python3 main.py viewreport
 ```
 Open your browser to http://127.0.0.1:5000/
 

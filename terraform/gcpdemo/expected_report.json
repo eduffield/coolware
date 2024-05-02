@@ -1,0 +1,61 @@
+{
+    "Report Date": "2024-01-14",
+    "Report Contents": [
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Publicly Accessible GCS Bucket",
+            "Remediation": "Configure the bucket IAM policy to restrict public access.",
+            "Affected Resources": [
+                {
+                    "name": "vulnerable-bucket",
+                    "region": "US",
+                    "provider": "gcp",
+                    "service": "Cloud Storage"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "Cloud SQL Instance without SSL",
+            "Remediation": "Enable SSL to secure database connections.",
+            "Affected Resources": [
+                {
+                    "name": "vulnerable-sql-instance",
+                    "region": "us-central1",
+                    "provider": "gcp",
+                    "service": "Cloud SQL"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "GKE Cluster without Private Nodes",
+            "Remediation": "Configure the cluster to use private nodes to limit public internet access.",
+            "Affected Resources": [
+                {
+                    "name": "vulnerable-cluster",
+                    "region": "us-central1",
+                    "provider": "gcp",
+                    "service": "Kubernetes Engine"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Compute Engine Instance with Public IP",
+            "Remediation": "Evaluate the need for a public IP address and consider using private IP if possible.",
+            "Affected Resources": [
+                {
+                    "name": "vulnerable-vm",
+                    "region": "us-central1",
+                    "provider": "gcp",
+                    "service": "Compute Engine"
+                }
+            ]
+        }
+    ]
+}

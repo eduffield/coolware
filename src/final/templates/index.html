@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" media="all">
+    <link href="{{ url_for('static',filename='styles/main.css') }}" rel="stylesheet" type="text/css" id="theme">
+</head>
+<body>
+    <div>
+        <br>
+        <br>
+        <img src="{{url_for('static', filename='logo.png')}}" style="width:25%; display:block; margin: 0 auto;">
+        <br>
+        <h1 style="text-align:center;">Security Reports</h1>
+        <br>
+        <div class="container mt-3">
+            <ul class="list-group list-group-flush">
+                {% for filename in json_files %}
+                    <li class="list-group-item">
+                        <p style="float:left; padding-right:7px; padding-top:10px; padding-bottom:10px;">Report {{ all_report_data[filename]['Report Date'] }}</p>
+                        <p style="float:left; padding-right:8px; padding-top:10px; padding-bottom:0px; font-size:11px;">9:16 PM</p>
+                        <!--
+                            TODO: Load time from json
+                        -->
+                        <p style="float:left; padding-right:10px; padding-top:10px; padding-bottom: 10px;">Issues: {% if all_report_data[filename]['Report Contents'] %}{{ all_report_data[filename]['Report Contents']|length }}{% else %}0{% endif %}</p>
+                        <form style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/report/{{ filename }}"> <button type="submit" class="btn btn-outline-info">View</button> </form>
+                        <form id="deleteForm_{{ filename }}" style="float:right; padding-right:10px; padding-top:10px; padding-bottom: 10px;" action="/delete_report/{{ filename }}" method="post" style="display:inline;"> <button type="button" onclick="confirmDelete('{{ filename }}')" class="btn btn-outline-danger">Delete</button> </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <br>
+        <br>
+        <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+
+    </div>
+
+    <script>
+        function confirmDelete(filename) {
+            if (confirm("Are you sure you want to delete this report?")) {
+                document.getElementById('deleteForm_' + filename).submit();
+            }
+        }
+
+        function toggleTheme() { 
+            var link = document.getElementById("theme");
+            var currentTheme = localStorage.getItem("theme");
+    
+            if (currentTheme === "{{ url_for('static',filename='styles/main.css') }}") {
+                link.setAttribute("href", "{{ url_for('static',filename='styles/dark.css') }}");
+                localStorage.setItem("theme", "{{ url_for('static',filename='styles/dark.css') }}");
+                updateButtonClasses("btn-outline-dark", "btn-outline-light");
+            } else {
+                link.setAttribute("href", "{{ url_for('static',filename='styles/main.css') }}");
+                localStorage.setItem("theme", "{{ url_for('static',filename='styles/main.css') }}");
+                updateButtonClasses("btn-outline-light", "btn-outline-dark");
+            }
+        }
+    
+        // Function to update button classes
+        function updateButtonClasses(classToRemove, classToAdd) {
+            var buttons = document.getElementsByClassName("buttonTheme");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove(classToRemove);
+                buttons[i].classList.add(classToAdd);
+            }
+        }
+    
+        // On page load, set the theme based on the stored value
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var link = document.getElementById("theme");
+            var currentTheme = localStorage.getItem("theme");
+    
+            if (currentTheme) {
+                link.setAttribute("href", currentTheme);
+                if (currentTheme === "{{ url_for('static',filename='styles/dark.css') }}") {
+                    updateButtonClasses("btn-outline-dark", "btn-outline-light");
+                } else {
+                    updateButtonClasses("btn-outline-light", "btn-outline-dark");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

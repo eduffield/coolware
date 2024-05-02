@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href= "{{ url_for('static',filename='styles/main.css') }}" rel="stylesheet" type="text/css" id="theme">
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <h1 style="text-align:center;">Issue Details</h1>
+    <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('report', filename=filename) }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Report</button>
+    <br>
+    <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+
+    <div class="container">
+        <div class="list-group list-group-flush">
+            <div class="card-header">
+                <h2>{{ issue_data["Issue"] }}</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Status:</strong> {{ issue_data["Status"] }}</p>
+                <p><strong>Severity:</strong> {{ issue_data["Severity"] }}</p>
+                <p><strong>Remediation:</strong> {{ issue_data["Remediation"] }}</p>
+                <h3>Affected Resources:</h3>
+                <ul class="list-group">
+                    {% for resource in issue_data["Affected Resources"] %}
+                    <li class="list-group-item">
+                        <p><strong>Name:</strong> {{ resource["name"] }}</p>
+                        <p><strong>Region:</strong> {{ resource["region"] }}</p>
+                        <p><strong>Provider:</strong> {{ resource["provider"] }}</p>
+                        <p><strong>Service:</strong> {{ resource["service"] }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="buttonTheme btn btn-outline-dark" onclick="window.location.href='{{ url_for('report', filename=filename) }}'" style="margin-left:auto; margin-right:auto; display:block;">Return to Report</button>
+    <br>
+    <button class="buttonTheme btn btn-outline-dark" onclick="toggleTheme()" style="margin-left:auto; margin-right:auto; display:block;">Toggle theme</button>
+    <br>
+
+    <script>
+        function toggleTheme() { 
+            var link = document.getElementById("theme");
+            var currentTheme = localStorage.getItem("theme");
+    
+            if (currentTheme === "{{ url_for('static',filename='styles/main.css') }}") {
+                link.setAttribute("href", "{{ url_for('static',filename='styles/dark.css') }}");
+                localStorage.setItem("theme", "{{ url_for('static',filename='styles/dark.css') }}");
+                updateButtonClasses("btn-outline-dark", "btn-outline-light");
+            } else {
+                link.setAttribute("href", "{{ url_for('static',filename='styles/main.css') }}");
+                localStorage.setItem("theme", "{{ url_for('static',filename='styles/main.css') }}");
+                updateButtonClasses("btn-outline-light", "btn-outline-dark");
+            }
+        }
+    
+        // Function to update button classes
+        function updateButtonClasses(classToRemove, classToAdd) {
+            var buttons = document.getElementsByClassName("buttonTheme");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove(classToRemove);
+                buttons[i].classList.add(classToAdd);
+            }
+        }
+    
+        // On page load, set the theme based on the stored value
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var link = document.getElementById("theme");
+            var currentTheme = localStorage.getItem("theme");
+    
+            if (currentTheme) {
+                link.setAttribute("href", currentTheme);
+                if (currentTheme === "{{ url_for('static',filename='styles/dark.css') }}") {
+                    updateButtonClasses("btn-outline-dark", "btn-outline-light");
+                } else {
+                    updateButtonClasses("btn-outline-light", "btn-outline-dark");
+                }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll('.btn-check');
+            radioButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    let status;
+                    switch (this.getAttribute('id')) {
+                        case 'btnradio1':
+                            status = 'Active';
+                            break;
+                        case 'btnradio2':
+                            status = 'Resolved';
+                            break;
+                        case 'btnradio3':
+                            status = 'Ignored';
+                            break;
+                        default:
+                            status = 'All';
+                    }
+                    const issueContainers = document.querySelectorAll('.issue-container');
+                    issueContainers.forEach(function(container) {
+                        container.style.display = 'none'; // Hide all issue containers initially
+                        if (status === 'All' || container.dataset.status === status) {
+                            container.style.display = 'block'; // Display issues with selected status or all issues
+                        }
+                    });
+                });
+            });
+        });
+
+    function resolveReport(filename, index) {
+        // Send a POST request to the Flask server to resolve the report
+        fetch(`/resolve_report/${filename}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the request is successful, reload the page to reflect the changes
+                location.reload();
+            } else {
+                throw new Error('Failed to resolve report');
+            }
+        })
+        .catch(error => {
+            console.error('Error resolving report:', error);
+            // Handle error appropriately (e.g., display a message to the user)
+        });
+    }
+
+    function ignoreReport(filename, index) {
+        // Send a POST request to the Flask server to ignore the report
+        fetch(`/ignore_report/${filename}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // If the request is successful, reload the page to reflect the changes
+                location.reload();
+            } else {
+                throw new Error('Failed to ignore report');
+            }
+        })
+        .catch(error => {
+            console.error('Error ignoring report:', error);
+            // Handle error appropriately (e.g., display a message to the user)
+        });
+    }
+
+    </script>
+</body>
+</html>
