@@ -2,22 +2,27 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_instance" "blog_instance" {
-  ami           = "ami-0e001c9271cf7f3b9"
-  instance_type = "t2.micro"
-  security_groups = [aws_security_group.web_sg.name]
+resource "aws_security_group" "blog_sg" {
+  name        = "blog_sg"
+  description = "Security group for the Example Blog app"
 
-  tags = {
-    Name = "ExampleBlogInstance"
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
-}
-
-resource "aws_security_group" "web_sg" {
-  name = "web-sg"
 
   ingress {
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -28,62 +33,49 @@ resource "aws_security_group" "web_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+resource "aws_instance" "blog_instance" {
+  ami           = "ami-0b0ea68c435eb488d"
+  instance_type = "t2.micro"
+  security_groups = [aws_security_group.blog_sg.name]
+
+  root_block_device {
+    volume_type = "gp2"
+    volume_size = 10
+    encrypted   = false  # Not encrypted
+  }
+
+  user_data = <<-EOF
+                  #!/bin/bash
+                  sudo apt update
+                  sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl -y
+                  sudo pip3 install virtualenv
+                  mkdir ~/myproject
+                  cd ~/myproject
+                  virtualenv myprojectenv
+                  source myprojectenv/bin/activate
+                  pip install django gunicorn psycopg2
+                  django-admin startproject exampleblog .
+                  # Additional setup like configuring settings.py for production can be added here
+                  EOF
 
   tags = {
-    Name = "WebTrafficSG"
+    Name = "ExampleBlogInstance"
   }
 }
 
-# Security Group with Vulnerable Configurations
-resource "aws_security_group" "vulnerable_sg" {
-  name = "vulnerable-sg"
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 21
-    to_port     = 21
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "VulnerableSG"
-  }
-}
-
-# EBS Volume Attached to EC2 Instance
-resource "aws_ebs_volume" "blog_volume" {
-  availability_zone = aws_instance.blog_instance.availability_zone
-  size              = 10
-
-  tags = {
-    Name = "ExampleBlogVolume"
-  }
-}
-
-# Attach EBS to EC2
-resource "aws_volume_attachment" "ebs_attachment" {
-  device_name = "/dev/sdh"
-  volume_id   = aws_ebs_volume.blog_volume.id
-  instance_id = aws_instance.blog_instance.id
-}
 /*
-# RDS PostgreSQL Database
 resource "aws_db_instance" "blog_db" {
   allocated_storage    = 20
+  storage_type         = "gp2"
   engine               = "postgres"
-  engine_version       = "12.4"
-  instance_class       = "db.t3.micro"
-  db_name                 = "exampleblogdb"
+  engine_version       = "14" 
+  instance_class       = "db.t3.micro" 
+  db_name              = "exampleblogdb"
   username             = "dbadmin"
   password             = "securepassword"
-  parameter_group_name = "default.postgres12"
+  parameter_group_name = "default.postgres14"
   skip_final_snapshot  = true
 
   tags = {
@@ -91,10 +83,11 @@ resource "aws_db_instance" "blog_db" {
   }
 }
 */
-# Elastic Load Balancer
+
+
 resource "aws_elb" "blog_elb" {
   name               = "example-blog-elb"
-  availability_zones = ["us-east-1a"]
+  availability_zones = ["us-east-1a", "us-east-1b"]
 
   listener {
     instance_port     = 80
@@ -111,10 +104,38 @@ resource "aws_elb" "blog_elb" {
     unhealthy_threshold = 2
   }
 
-  instances = [aws_instance.blog_instance.id]
+  instances                   = [aws_instance.blog_instance.id]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
 }
 
-# Output the public IP of the EC2 Instance
-output "blog_instance_public_ip" {
-  value = aws_instance.blog_instance.public_ip
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "wdawdawwd2af32f32f3t" #
+  tags = {
+    Name = "My Public and unique dAWDWD@2"
+  }
+}
+
+resource "aws_s3_bucket_policy" "allow_public_access" {
+  bucket = aws_s3_bucket.my_bucket.id
+  policy = data.aws_iam_policy_document.allow_public_access.json
+}
+
+data "aws_iam_policy_document" "allow_public_access" {
+  statement {
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+
+    actions = [
+      "s3:GetObject",
+      "s3:ListBucket",
+    ]
+
+    resources = [
+      aws_s3_bucket.my_bucket.arn,
+      "${aws_s3_bucket.my_bucket.arn}/*",
+    ]
+  }
 }

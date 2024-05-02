@@ -40,6 +40,12 @@ resource "aws_instance" "blog_instance" {
   instance_type = "t2.micro"
   security_groups = [aws_security_group.blog_sg.name]
 
+  root_block_device {
+    volume_type = "gp2"
+    volume_size = 10
+    encrypted   = false  # Not encrypted
+  }
+
   user_data = <<-EOF
                   #!/bin/bash
                   sudo apt update
@@ -59,7 +65,7 @@ resource "aws_instance" "blog_instance" {
   }
 }
 
-/*
+
 resource "aws_db_instance" "blog_db" {
   allocated_storage    = 20
   storage_type         = "gp2"
@@ -71,12 +77,14 @@ resource "aws_db_instance" "blog_db" {
   password             = "securepassword"
   parameter_group_name = "default.postgres14"
   skip_final_snapshot  = true
+  auto_minor_version_upgrade = false  # Disabling automatic minor version upgrades
+  storage_encrypted    = false        # Not using encrypted storage
 
   tags = {
     Name = "ExampleBlogDB"
   }
 }
-*/
+
 
 resource "aws_elb" "blog_elb" {
   name               = "example-blog-elb"
@@ -102,3 +110,33 @@ resource "aws_elb" "blog_elb" {
   idle_timeout                = 400
 }
 
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "wdawdawwd2af32f32f3t" #
+  tags = {
+    Name = "My Public and unique dAWDWD@2"
+  }
+}
+
+resource "aws_s3_bucket_policy" "allow_public_access" {
+  bucket = aws_s3_bucket.my_bucket.id
+  policy = data.aws_iam_policy_document.allow_public_access.json
+}
+
+data "aws_iam_policy_document" "allow_public_access" {
+  statement {
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+
+    actions = [
+      "s3:GetObject",
+      "s3:ListBucket",
+    ]
+
+    resources = [
+      aws_s3_bucket.my_bucket.arn,
+      "${aws_s3_bucket.my_bucket.arn}/*",
+    ]
+  }
+}
