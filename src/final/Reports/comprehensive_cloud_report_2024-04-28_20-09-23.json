@@ -1,5 +1,5 @@
 {
-  "Report Date": "2024-05-02_22-02-50",
+  "Report Date": "2024-04-28_20-09-23",
   "Report Contents": [
     {
       "Status": "Active",
@@ -46,6 +46,580 @@
     {
       "Status": "Active",
       "Severity": 3,
+      "Issue": "Anomalous behavior detected: AssumeRole",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeVolumes",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeVolumes",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: AssumeRole",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: GetCostAndUsage",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListApplications",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: GetCostAndUsage",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListEnrollmentStatuses",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeRegions",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: GetCostForecast",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListNotificationHubs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeVolumes",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
       "Issue": "Anomalous behavior detected: LookupEvents",
       "Remediation": "Investigate the event for potential security implications.",
       "Affected Resources": [
@@ -117,538 +691,6 @@
       "Status": "Active",
       "Severity": 3,
       "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeVolumes",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: LookupEvents",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: ListPolicies",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: LookupEvents",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: LookupEvents",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeVolumes",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeVolumes",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DeleteNetworkInterface",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeDBInstances",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DescribeNetworkInterfaces",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DeleteSecurityGroup",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: AssumeRole",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DeleteNetworkInterface",
-      "Remediation": "Investigate the event for potential security implications.",
-      "Affected Resources": [
-        {
-          "name": "AWS CloudTrail",
-          "region": "us-east-1",
-          "provider": "AWS",
-          "service": "CloudTrail"
-        }
-      ]
-    },
-    {
-      "Status": "Active",
-      "Severity": 3,
-      "Issue": "Anomalous behavior detected: DeleteNetworkInterface",
       "Remediation": "Investigate the event for potential security implications.",
       "Affected Resources": [
         {
