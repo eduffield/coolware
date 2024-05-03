@@ -1,21 +1,21 @@
 from google.oauth2 import service_account
 from google.cloud import storage
+from google.cloud import compute_v1
+# from google.cloud import sqladmin_v1beta4
+from google.cloud import container_v1
 from Report import Report, Resource
 
-def check_gcs_buckets(storage_client, report):
-    buckets = storage_client.list_buckets()
+def check_gcs_buckets(storage_client, report, project_id):
+    buckets = storage_client.list_buckets(project=project_id)
     for bucket in buckets:
         iam_policy = bucket.get_iam_policy()
-        for role, members in iam_policy.items():
+        for role, members in iam_policy.bindings.items():
             if 'allUsers' in members or 'allAuthenticatedUsers' in members:
                 issue = f"GCS Bucket '{bucket.name}' is publicly accessible."
                 remediation = "Remove public access from the bucket IAM policy."
-                report.add_issue(severity=4, issue=issue, remediation=remediation, affected_resources=[Resource(name=bucket.name, service='Google Cloud Storage')])
-        if not bucket.default_kms_key_name:
-            issue = f"GCS Bucket '{bucket.name}' does not use a default KMS key for encryption."
-            remediation = "Assign a default KMS key to the bucket."
-            report.add_issue(severity=3, issue=issue, remediation=remediation, affected_resources=[Resource(name=bucket.name, service='Google Cloud Storage')])
+                report.add_issue(severity=4, issue=issue, remediation=remediation, affected_resources=[Resource(name=bucket.name, provider='Google Cloud', service='Google Cloud Storage', region='global')])
 
+'''
 def check_cloud_sql_instances(sql_client, project_id, report):
     request = sqladmin_v1beta4.SqlInstancesListRequest(project=project_id)
     instance_list = sql_client.list(request=request)
@@ -27,18 +27,10 @@ def check_cloud_sql_instances(sql_client, project_id, report):
                 severity=3,
                 issue=issue,
                 remediation=remediation,
-                affected_resources=[Resource(name=instance.name, service='Google Cloud SQL')]
+                affected_resources=[Resource(name=instance.name, provider='Google Cloud', service='Google Cloud SQL', region='global')]
             )
-        if not instance.settings.backup_configuration.enabled:
-            issue = f"Cloud SQL instance '{instance.name}' does not have backups enabled."
-            remediation = "Enable automated backups to protect against data loss."
-            report.add_issue(
-                severity=4,
-                issue=issue,
-                remediation=remediation,
-                affected_resources=[Resource(name=instance.name, service='Google Cloud SQL')]
-            )
-
+'''
+            
 def check_gke_clusters(gke_client, project_id, report):
     request = container_v1.ListClustersRequest(project_id=project_id)
     clusters_list = gke_client.list_clusters(request=request)
@@ -50,16 +42,7 @@ def check_gke_clusters(gke_client, project_id, report):
                 severity=3,
                 issue=issue,
                 remediation=remediation,
-                affected_resources=[Resource(name=cluster.name, service='Google Kubernetes Engine')]
-            )
-        if not cluster.logging_service or not cluster.monitoring_service:
-            issue = f"Kubernetes cluster '{cluster.name}' does not have logging or monitoring enabled."
-            remediation = "Enable Stackdriver Logging and Monitoring for better visibility and security."
-            report.add_issue(
-                severity=2,
-                issue=issue,
-                remediation=remediation,
-                affected_resources=[Resource(name=cluster.name, service='Google Kubernetes Engine')]
+                affected_resources=[Resource(name=cluster.name, provider='Google Cloud', service='Google Kubernetes Engine', region='global')]
             )
 
 def check_gce_instances(compute_client, project_id, report):
@@ -76,39 +59,28 @@ def check_gce_instances(compute_client, project_id, report):
                             severity=4,
                             issue=issue,
                             remediation=remediation,
-                            affected_resources=[Resource(name=instance.name, service='Google Compute Engine')]
+                            affected_resources=[Resource(name=instance.name, provider='Google Cloud', service='Google Compute Engine', region='global')]
                         )
-                if instance.network_interfaces:
-                    for interface in instance.network_interfaces:
-                        if 'access_configs' in interface:
-                            issue = f"Compute Engine instance '{instance.name}' has a public IP address."
-                            remediation = "Remove the public IP address or secure it with appropriate firewall rules."
-                            report.add_issue(
-                                severity=3,
-                                issue=issue,
-                                remediation=remediation,
-                                affected_resources=[Resource(name=instance.name, service='Google Compute Engine')]
-                            )
-
 
 def main(report):
     try:
+        ### FIX LATER: Add some way for people to specify path on first start?
         credentials = service_account.Credentials.from_service_account_file(
-            'path_to_your_service_account_key.json' 
+            'path_to_your_service_account_key.json'
         )
         project_id = 'your_project_id'
 
         storage_client = storage.Client(credentials=credentials, project=project_id)
         compute_client = compute_v1.InstancesClient(credentials=credentials)
-        sql_client = sqladmin_v1beta4.SQLAdminServiceClient(credentials=credentials)
+        # sql_client = sqladmin_v1beta4.SqlAdminServiceClient(credentials=credentials)
         gke_client = container_v1.ClusterManagerClient(credentials=credentials)
 
-        check_gcs_buckets(storage_client, report)
-        check_gce_instances(compute_client, report)
-        check_cloud_sql_instances(sql_client, report)
-        check_gke_clusters(gke_client, report)
-    except:
-        print("Couldn't connect to GCP.")
+        check_gcs_buckets(storage_client, report, project_id)
+        check_gce_instances(compute_client, project_id, report)
+        # check_cloud_sql_instances(sql_client, project_id, report)
+        check_gke_clusters(gke_client, project_id, report)
+
+    except Exception as e:
+        print(f"Couldn't connect to GCP. {e}")
         pass
 
-    

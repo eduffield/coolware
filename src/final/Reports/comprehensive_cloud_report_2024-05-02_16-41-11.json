@@ -1,0 +1,131 @@
+{
+    "Report Date": "2024-05-02_16-41-11",
+    "Report Contents": [
+        {
+            "Status": "Resolved",
+            "Severity": 2,
+            "Issue": "Security Group 'blog_sg' allows public access on port 80.",
+            "Remediation": "Restrict access to known IPs or internal networks.",
+            "Affected Resources": [
+                {
+                    "name": "blog_sg",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "EC2"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Security Group 'blog_sg' allows public access on port 22.",
+            "Remediation": "Restrict access to known IPs or internal networks.",
+            "Affected Resources": [
+                {
+                    "name": "blog_sg",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "EC2"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Security Group 'blog_sg' allows public access on port 443.",
+            "Remediation": "Restrict access to known IPs or internal networks.",
+            "Affected Resources": [
+                {
+                    "name": "blog_sg",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "EC2"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "Security Group 'default_elb_c023b1f5-f29a-353a-8319-33e425374bcc' allows public access on port 80.",
+            "Remediation": "Restrict access to known IPs or internal networks.",
+            "Affected Resources": [
+                {
+                    "name": "default_elb_c023b1f5-f29a-353a-8319-33e425374bcc",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "EC2"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "EBS volume 'vol-02361ee4f09ae1342' is not encrypted.",
+            "Remediation": "Encrypt EBS volumes to protect data at rest.",
+            "Affected Resources": [
+                {
+                    "name": "vol-02361ee4f09ae1342",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "EC2"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "RDS instance 'terraform-20240430001754564100000001' storage is not encrypted.",
+            "Remediation": "Enable encryption for RDS instances to protect data at rest.",
+            "Affected Resources": [
+                {
+                    "name": "terraform-20240430001754564100000001",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "RDS"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "RDS instance 'terraform-20240502175137592400000001' storage is not encrypted.",
+            "Remediation": "Enable encryption for RDS instances to protect data at rest.",
+            "Affected Resources": [
+                {
+                    "name": "terraform-20240502175137592400000001",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "RDS"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 3,
+            "Issue": "RDS instance 'terraform-20240502215142325300000001' storage is not encrypted.",
+            "Remediation": "Enable encryption for RDS instances to protect data at rest.",
+            "Affected Resources": [
+                {
+                    "name": "terraform-20240502215142325300000001",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "RDS"
+                }
+            ]
+        },
+        {
+            "Status": "Active",
+            "Severity": 2,
+            "Issue": "RDS instance 'terraform-20240502215142325300000001' has automatic minor version upgrades disabled.",
+            "Remediation": "Enable automatic minor version upgrades to receive security patches.",
+            "Affected Resources": [
+                {
+                    "name": "terraform-20240502215142325300000001",
+                    "region": "us-east-1",
+                    "provider": "AWS",
+                    "service": "RDS"
+                }
+            ]
+        }
+    ]
+}

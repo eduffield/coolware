@@ -1,25 +1,28 @@
 provider "google" {
-  credentials = file("<PATH-TO-YOUR-SERVICE-ACCOUNT-KEY>.json")
+  credentials = file("<YOUR-CREDENTIALS-FILE>.json")
   project     = "<YOUR-PROJECT-ID>"
   region      = "us-central1"
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "vulnerable-network"
+  name = "terraform-network"
 }
 
-resource "google_storage_bucket" "vulnerable_bucket" {
-  name     = "vulnerable-bucket-${random_id.bucket_suffix.hex}"
-  location = "US"
+resource "google_compute_firewall" "firewall" {
+  name    = "terraform-firewall"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22", "80", "443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
 }
 
-resource "random_id" "bucket_suffix" {
-  byte_length = 8
-}
-
-resource "google_compute_instance" "vulnerable_vm" {
-  name         = "vulnerable-vm"
-  machine_type = "f1-micro"
+resource "google_compute_instance" "default" {
+  name         = "terraform-instance"
+  machine_type = "e2-micro"
   zone         = "us-central1-a"
 
   boot_disk {
@@ -31,32 +34,67 @@ resource "google_compute_instance" "vulnerable_vm" {
   network_interface {
     network = google_compute_network.vpc_network.name
     access_config {
-      // Ephemeral public IP
+      // Ephemeral IP
     }
   }
+
+  metadata_startup_script = <<-EOT
+    #!/bin/bash
+    sudo apt-get update
+    sudo apt-get install -y nginx
+  EOT
 }
 
-resource "google_sql_database_instance" "vulnerable_sql_instance" {
-  name     = "vulnerable-sql-instance"
+resource "google_sql_database_instance" "default" {
+  name     = "terraform-sql-instance"
   region   = "us-central1"
+  database_version = "POSTGRES_12"
 
   settings {
     tier = "db-f1-micro"
+  }
+}
 
-    ip_configuration {
-      require_ssl = false
+resource "google_container_cluster" "primary" {
+  name     = "terraform-cluster"
+  location = "us-central1"
+
+  remove_default_node_pool = true
+  initial_node_count       = 1
+}
+
+resource "google_container_node_pool" "primary_preemptible_nodes" {
+  name       = "terraform-nodes"
+  location   = "us-central1"
+  cluster    = google_container_cluster.primary.name
+  node_count = 1
+
+  node_config {
+    preemptible  = true
+    machine_type = "e2-micro"
+
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+  }
+}
+
+resource "google_storage_bucket" "terraform_bucket" {
+  name          = "terraform-test-bucket-${random_id.bucket_suffix.hex}"
+  location      = "US"
+  force_destroy = true
+  uniform_bucket_level_access = true
+
+  lifecycle_rule {
+    condition {
+      age = 7
+    }
+    action {
+      type = "Delete"
     }
   }
 }
 
-resource "google_container_cluster" "vulnerable_cluster" {
-  name     = "vulnerable-cluster"
-  location = "us-central1"
-
-  remove_default_node_pool = true
-  initial_node_count = 1
-
-  node_config {
-    machine_type = "n1-standard-1"
-  }
+resource "random_id" "bucket_suffix" {
+  byte_length = 2
 }

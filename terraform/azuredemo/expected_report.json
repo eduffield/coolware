@@ -1,61 +1,161 @@
 {
-    "Report Date": "2024-01-14",
+    "Report Date": "2024-05-02_21-39-30",
     "Report Contents": [
-        {
-            "Status": "Active",
-            "Severity": 2,
-            "Issue": "Publicly Accessible Storage Account",
-            "Remediation": "Modify the storage account's network access rules to deny public access.",
-            "Affected Resources": [
-                {
-                    "name": "examplestorage",
-                    "region": "East US",
-                    "provider": "azure",
-                    "service": "Blob Storage"
-                }
-            ]
-        },
-        {
-            "Status": "Active",
-            "Severity": 3,
-            "Issue": "SQL Database without SSL",
-            "Remediation": "Enable SSL on the SQL database to encrypt data in transit.",
-            "Affected Resources": [
-                {
-                    "name": "example-sqldb",
-                    "region": "East US",
-                    "provider": "azure",
-                    "service": "SQL Database"
-                }
-            ]
-        },
-        {
-            "Status": "Active",
-            "Severity": 2,
-            "Issue": "Virtual Machine with Public IP",
-            "Remediation": "Review the necessity of a public IP address or secure it with stricter network rules.",
-            "Affected Resources": [
-                {
-                    "name": "exampleVM",
-                    "region": "East US",
-                    "provider": "azure",
-                    "service": "Virtual Machines"
-                }
-            ]
-        },
-        {
-            "Status": "Active",
-            "Severity": 3,
-            "Issue": "Unencrypted Virtual Machine Disk",
-            "Remediation": "Enable disk encryption to protect sensitive data at rest.",
-            "Affected Resources": [
-                {
-                    "name": "exampleVM",
-                    "region": "East US",
-                    "provider": "azure",
-                    "service": "Virtual Machines"
-                }
-            ]
-        }
+      {
+        "Status": "Active",
+        "Severity": 3,
+        "Issue": "Storage account 'exampleStorageAccount' allows public blob access.",
+        "Remediation": "Disable public blob access for this storage account.",
+        "Affected Resources": [
+          {
+            "name": "exampleStorageAccount",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Blob Storage"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 3,
+        "Issue": "Storage account 'exampleStorageAccount' does not have default blob encryption enabled.",
+        "Remediation": "Enable default encryption on the blob service.",
+        "Affected Resources": [
+          {
+            "name": "exampleStorageAccount",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Blob Storage"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 4,
+        "Issue": "SQL Database 'exampleDatabase' on server 'exampleServer' does not have Transparent Data Encryption enabled.",
+        "Remediation": "Enable Transparent Data Encryption (TDE) for this database.",
+        "Affected Resources": [
+          {
+            "name": "exampleDatabase",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure SQL Database"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 2,
+        "Issue": "SQL Database 'exampleDatabase' on server 'exampleServer' has short backup retention period.",
+        "Remediation": "Increase backup retention period to at least 7 days.",
+        "Affected Resources": [
+          {
+            "name": "exampleDatabase",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure SQL Database"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 4,
+        "Issue": "Virtual Machine 'exampleVM' has an unencrypted disk 'exampleDisk'.",
+        "Remediation": "Enable encryption on the virtual machine's disks.",
+        "Affected Resources": [
+          {
+            "name": "exampleVM",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Virtual Machine",
+            "detail": "Disk: exampleDisk"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 3,
+        "Issue": "Network Security Group 'exampleNSG' has an overly permissive rule 'rule1'.",
+        "Remediation": "Restrict the rule to specific IP ranges and/or specific ports.",
+        "Affected Resources": [
+          {
+            "name": "exampleNSG",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Network Security Group"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 4,
+        "Issue": "Unauthorized access attempt detected: {event details}",
+        "Remediation": "Investigate and address the unauthorized access attempts.",
+        "Affected Resources": [
+          {
+            "name": "Azure Sign-in Activity",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Monitor"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 3,
+        "Issue": "Role with potentially excessive permissions found: Owner",
+        "Remediation": "Review and possibly reduce the level of permissions.",
+        "Affected Resources": [
+          {
+            "name": "Owner",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure RBAC"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 2,
+        "Issue": "Management console activity detected: {event details}",
+        "Remediation": "Review management console activities for any unauthorized or suspicious actions.",
+        "Affected Resources": [
+          {
+            "name": "Azure Management Console",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Monitor"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 3,
+        "Issue": "Overly permissive rule found in NSG exampleNSG",
+        "Remediation": "Restrict the rule to specific IP ranges and specific ports.",
+        "Affected Resources": [
+          {
+            "name": "exampleNSG",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure NSG"
+          }
+        ]
+      },
+      {
+        "Status": "Active",
+        "Severity": 3,
+        "Issue": "Public access allowed in storage account: exampleStorageAccount",
+        "Remediation": "Disable public access on storage accounts to protect data.",
+        "Affected Resources": [
+          {
+            "name": "exampleStorageAccount",
+            "region": "your-region",
+            "provider": "Azure",
+            "service": "Azure Storage"
+          }
+        ]
+      }
     ]
-}
+  }
+  

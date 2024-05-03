@@ -5,21 +5,28 @@ Reports that allow you to scale with confidence.
 
 Supports security inspections for AWS, Azure, and GCP providers.
 
+CloudPeek uses the MITRE ATT&CK Matrix to protect your servers, databases, and networks.
+
 ## System Requirements
 - [Python 3.9 or later](https://www.python.org/downloads/)
-- CLI for each provider must be installed seperately and configured. See: [AWS](https://aws.amazon.com/cli/), [Azure](https://learn.microsoft.com/en-us/cli/azure/), [GCP](https://cloud.google.com/sdk/gcloud)
+- CLI for each provider that you use must be installed seperately and configured. See: [AWS](https://aws.amazon.com/cli/), [Azure](https://learn.microsoft.com/en-us/cli/azure/), [GCP](https://cloud.google.com/sdk/gcloud)
 
-## Running a report
+## Running the program
 ```
 cd ./src/final
+
+# Install the requirements
+
+pip install -r requirements.txt
+
+# View reports
+
+python3 main.py viewreport
 
 # Generate a new report
 
 python3 main.py makereport
 
-# View reports
-
-python3 main.py viewreport
 ```
 Open your browser to http://127.0.0.1:5000/
 
