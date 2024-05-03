@@ -1,0 +1,761 @@
+{
+  "Report Date": "2024-05-02_23-09-23",
+  "Report Contents": [
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Security Group 'default_elb_c023b1f5-f29a-353a-8319-33e425374bcc' allows public access on port 80.",
+      "Remediation": "Restrict access to known IPs or internal networks.",
+      "Affected Resources": [
+        {
+          "name": "default_elb_c023b1f5-f29a-353a-8319-33e425374bcc",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "EC2"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "RDS instance 'terraform-20240430001754564100000001' storage is not encrypted.",
+      "Remediation": "Enable encryption for RDS instances to protect data at rest.",
+      "Affected Resources": [
+        {
+          "name": "terraform-20240430001754564100000001",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "RDS"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "RDS instance 'terraform-20240502175137592400000001' storage is not encrypted.",
+      "Remediation": "Enable encryption for RDS instances to protect data at rest.",
+      "Affected Resources": [
+        {
+          "name": "terraform-20240502175137592400000001",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "RDS"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: AssumeRole",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeVolumes",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeVolumes",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: AssumeRole",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: GetCostAndUsage",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListApplications",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: GetCostAndUsage",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListEnrollmentStatuses",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeRegions",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: GetCostForecast",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListNotificationHubs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeEventAggregates",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeSecurityGroups",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeVolumes",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: ListPolicies",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeFlowLogs",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: LookupEvents",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 3,
+      "Issue": "Anomalous behavior detected: DescribeDBInstances",
+      "Remediation": "Investigate the event for potential security implications.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Console access event: {'EventId': 'e7678ee4-7a0f-48c6-9eea-53e511d6779d', 'EventName': 'ConsoleLogin', 'ReadOnly': 'false', 'EventTime': datetime.datetime(2024, 5, 2, 11, 21, 40, tzinfo=tzlocal()), 'EventSource': 'signin.amazonaws.com', 'Username': 'root', 'Resources': [], 'CloudTrailEvent': '{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"Root\",\"principalId\":\"356863551146\",\"arn\":\"arn:aws:iam::356863551146:root\",\"accountId\":\"356863551146\",\"accessKeyId\":\"\"},\"eventTime\":\"2024-05-02T17:21:40Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"138.86.156.133\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://console.aws.amazon.com/console/home?hashArgs=%23&isauthcode=true&state=hashArgsFromTB_us-east-2_31d2d850d73d96c5\",\"MobileVersion\":\"No\",\"MFAIdentifier\":\"arn:aws:iam::356863551146:mfa/Sams\",\"MFAUsed\":\"Yes\"},\"eventID\":\"e7678ee4-7a0f-48c6-9eea-53e511d6779d\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"356863551146\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}'}",
+      "Remediation": "Review console login events for unauthorized access.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Console access event: {'EventId': 'd5b299d4-f0f6-4136-a1a6-2f42f9b89c33', 'EventName': 'ConsoleLogin', 'ReadOnly': 'false', 'EventTime': datetime.datetime(2024, 4, 30, 17, 43, 3, tzinfo=tzlocal()), 'EventSource': 'signin.amazonaws.com', 'Username': 'root', 'Resources': [], 'CloudTrailEvent': '{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"Root\",\"principalId\":\"356863551146\",\"arn\":\"arn:aws:iam::356863551146:root\",\"accountId\":\"356863551146\",\"accessKeyId\":\"\"},\"eventTime\":\"2024-04-30T23:43:03Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"174.29.64.80\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://console.aws.amazon.com/console/home?hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-2_a13598cb2f3c7fbd\",\"MobileVersion\":\"No\",\"MFAIdentifier\":\"arn:aws:iam::356863551146:mfa/Sams\",\"MFAUsed\":\"Yes\"},\"eventID\":\"d5b299d4-f0f6-4136-a1a6-2f42f9b89c33\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"356863551146\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}'}",
+      "Remediation": "Review console login events for unauthorized access.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Console access event: {'EventId': 'ee55e702-eaf1-4c13-a6fa-6c42d0d248e7', 'EventName': 'ConsoleLogin', 'ReadOnly': 'false', 'EventTime': datetime.datetime(2024, 4, 1, 16, 28, 28, tzinfo=tzlocal()), 'EventSource': 'signin.amazonaws.com', 'Username': 'root', 'Resources': [], 'CloudTrailEvent': '{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"Root\",\"principalId\":\"356863551146\",\"arn\":\"arn:aws:iam::356863551146:root\",\"accountId\":\"356863551146\",\"accessKeyId\":\"\"},\"eventTime\":\"2024-04-01T22:28:28Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"138.86.156.74\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://console.aws.amazon.com/console/home?hashArgs=%23&isauthcode=true&state=hashArgsFromTB_us-east-2_69a1413d9978998b\",\"MobileVersion\":\"No\",\"MFAIdentifier\":\"arn:aws:iam::356863551146:mfa/Sams\",\"MFAUsed\":\"Yes\"},\"eventID\":\"ee55e702-eaf1-4c13-a6fa-6c42d0d248e7\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"356863551146\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}'}",
+      "Remediation": "Review console login events for unauthorized access.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    },
+    {
+      "Status": "Active",
+      "Severity": 2,
+      "Issue": "Console access event: {'EventId': 'b4d60dee-f94d-4d92-8b17-98f07f3e3d53', 'EventName': 'ConsoleLogin', 'ReadOnly': 'false', 'EventTime': datetime.datetime(2024, 2, 15, 9, 9, 6, tzinfo=tzlocal()), 'EventSource': 'signin.amazonaws.com', 'Username': 'root', 'Resources': [], 'CloudTrailEvent': '{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"Root\",\"principalId\":\"356863551146\",\"arn\":\"arn:aws:iam::356863551146:root\",\"accountId\":\"356863551146\",\"accessKeyId\":\"\"},\"eventTime\":\"2024-02-15T16:09:06Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"138.86.156.21\",\"userAgent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://console.aws.amazon.com/console/home?hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-2_cfd6e0cf87937c46\",\"MobileVersion\":\"No\",\"MFAIdentifier\":\"arn:aws:iam::356863551146:mfa/Sams\",\"MFAUsed\":\"Yes\"},\"eventID\":\"b4d60dee-f94d-4d92-8b17-98f07f3e3d53\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"356863551146\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}'}",
+      "Remediation": "Review console login events for unauthorized access.",
+      "Affected Resources": [
+        {
+          "name": "AWS CloudTrail",
+          "region": "us-east-1",
+          "provider": "AWS",
+          "service": "CloudTrail"
+        }
+      ]
+    }
+  ]
+}

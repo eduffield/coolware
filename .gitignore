@@ -40,3 +40,7 @@ src/final/__pycache__/Azure.cpython-312.pyc
 src/final/__pycache__/GCP.cpython-312.pyc
 src/final/__pycache__/Report.cpython-312.pyc
 terraform/awsdemo/.terraform.tfstate.lock.info
+src/final/__pycache__/AWS.cpython-311.pyc
+src/final/__pycache__/Azure.cpython-311.pyc
+src/final/__pycache__/GCP.cpython-311.pyc
+src/final/__pycache__/Report.cpython-311.pyc
